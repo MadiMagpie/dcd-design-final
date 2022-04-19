@@ -10,7 +10,7 @@ export default function StartTutorial(){
 
         return (
                 <FSBackground>
-                        <BackButton onClick = {()=> r.push("../index.js")}>back</BackButton>
+                        <BackButton onClick = {()=> r.push("../")}></BackButton>
                         <WelcomeTutorial></WelcomeTutorial>
                 </FSBackground>
         )

@@ -12,6 +12,7 @@ export default function Home() {
 
   return (
     <FSBackground backgroundColor = "#FFFAF1">
+        <img src = "/TimberTale_Vertical.svg"></img>
         <LongButton>Start</LongButton>
         <LongButton onClick={()=> r.push("/tutorial")}>Tutorial</LongButton>
     </FSBackground>

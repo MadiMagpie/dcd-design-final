@@ -20,3 +20,34 @@ h1{
   font-weight: 600;
   color: #7D4D2B;
 }
+h2{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: #7D4D2B;
+}
+
+h3{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: #7D4D2B;
+}
+p{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  color: #7D4D2B;
+}
+
+@keyframes bouncein {
+  from{
+    top: -50vh;
+  }
+  95%{
+    top:15vh;
+  }
+  to{
+    top: 10vh;
+  }
+}
+.bounceIn{
+  animation: bouncein 1s ease-in-out forwards;
+}

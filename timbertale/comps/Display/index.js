@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 
+// background: ${props => `url(${props.background}) center center/ cover no-repeat`};
 export const FSBackground = styled.div` 
 background-color: ${props => props.backgroundColor || "#7D4D2B"};
 display: flex;
@@ -16,7 +17,7 @@ background: #FFFAF1;
 display: flex;
 border-radius:25px; 
 max-width: 750px;
-width: 75%;
+width: 65%;
 flex-direction: column;
 align-items: center;
 margin: 5%, 10%;
@@ -25,7 +26,7 @@ margin: 5%, 10%;
 export const Wrapper = styled.div.attrs(props => ({
         margintop: props.margintop || "1em"
 }))`
-max-width: 450px;
+max-width: 60%;
 display: flex;
 flex-direction: column;
 align-items: center;

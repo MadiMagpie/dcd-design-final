@@ -35,31 +35,43 @@ max-width: 300px;
 padding: 1em 1em;
 `
 
-const BButton = styled.div`
+const BButton = styled.button`
 font-family: 'Poppins', sans-serif;
 font-weight: 600; 
 color: #FFF8EC;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+width: 85px;
+font-size: 1em;
 position: absolute;
+align-items: center;
 top: 5%;
 left: 5%;
+border: none;
+background-color: transparent;
 `;
 
-const SButton = styled.div`
+const SButton = styled.button`
+background: transparent;
+border: none;
+background-color: transparent;
 font-family: 'Poppins', sans-serif;
 font-size: 1em;
 font-weight: 600;
 color: #7D4D2B;
 display: flex;
 flex-direction: row;
+align-items: center;
 justify-content: space-between;
-width:65px;
-margin-left: 50%;
+width:75px;
+margin-left: 75%;
 `
 export class BackButton extends Component{
         render(){
                 return (
                 <BButton>
-                        <img src="../../public/backArrow.svg"></img>
+                        <img src="/backArrow.svg"></img>
                         back      
                 </BButton>
                 )
@@ -71,7 +83,7 @@ export class SkipButton extends Component{
                 return(
                         <SButton>
                                 SKIP 
-                                <img src = "../../public/skiparrow.svg"></img>                             
+                                <img src = "/skiparrow.svg"></img>                             
                         </SButton>
                 )
         }
