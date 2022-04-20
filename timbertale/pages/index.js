@@ -11,10 +11,12 @@ export default function Home() {
   const r = useRouter();
 
   return (
-    <FSBackground backgroundColor = "#FFFAF1">
+    <FSBackground backgroundcolor = "#FFFAF1" justifycontent="space-evenly">
         <img src = "/TimberTale_Vertical.svg"></img>
-        <LongButton>Start</LongButton>
-        <LongButton onClick={()=> r.push("/tutorial")}>Tutorial</LongButton>
+        <div>
+          <LongButton onClick = {()=> r.push("/start")}>Start</LongButton>
+          <LongButton onClick={()=> r.push("/tutorial")}>Tutorial</LongButton>
+        </div>
     </FSBackground>
   )
 }

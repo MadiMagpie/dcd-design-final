@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import styled from 'styled-components';
 import "typeface-poppins";
+import { useRouter} from 'next/router'
+
 
 export const LongButton = styled.button `
 background: ${props => props.white ? "#FFF8EC" : "#EB6A00"};
@@ -19,20 +21,10 @@ min-width: 300px;
 box-shadow: 0px 5px 10px #BFBFBF;
 `
 
-export const ShortButton = styled(LongButton).attrs(props => ({
-        marginleft: props.marginleft || "0"
-
-}))`
+export const ShortButton = styled(LongButton)`
 min-width: 100px;
 padding: 0.5em 0.25em; 
-margin-left:${props => props.marginleft};
-`
-
-export const ForestButton = styled(LongButton)`
-background: #999529;
-color: #FFF8EC;
-max-width: 300px;
-padding: 1em 1em;
+margin-left:${props => props.marginleft || "0"};
 `
 
 const BButton = styled.button`
@@ -65,26 +57,25 @@ flex-direction: row;
 align-items: center;
 justify-content: space-between;
 width:75px;
+margin-bottom: 25px;
 margin-left: 75%;
 `
-export class BackButton extends Component{
-        render(){
-                return (
-                <BButton>
+export function BackButton(){
+        const r = useRouter();
+        return (
+                <BButton onClick = {r.back}>
                         <img src="/backArrow.svg"></img>
                         back      
                 </BButton>
-                )
-        }
+        )
 }
-
-export class SkipButton extends Component{
-        render(){
-                return(
-                        <SButton>
-                                SKIP 
-                                <img src = "/skiparrow.svg"></img>                             
-                        </SButton>
-                )
-        }
+//onClick = {skiproute.push("/tutorial/last")}
+export function SkipButton(){
+        const skiproute = useRouter();
+        return(
+                <SButton >
+                        SKIP 
+                        <img src = "/skiparrow.svg"></img>                             
+                </SButton>
+        )
 }
