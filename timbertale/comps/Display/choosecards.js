@@ -40,4 +40,4 @@ max-width: 75%;
 display: flex;
 flex-direction: row;
 justify-content: center;
-`
+`;

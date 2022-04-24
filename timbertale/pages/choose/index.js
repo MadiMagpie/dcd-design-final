@@ -1,55 +1,45 @@
-import "typeface-poppins";
-import "typeface-signika";
-import { useRouter } from 'next/router'
 import { LongButton, BackButton, SkipButton, ShortButton } from '../../comps/Button';
-import { Card, Slider } from "../../comps/Display/choosecards";
-import { FSBackground } from "../../comps/Display";
-
-
+// import style from '../styles/global.css'
+// Import Swiper React components
+import { Card } from '../../comps/Display/choosecards';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { FSBackground } from "../../comps/Display";
+import { useRouter } from 'next/router';
 
+ 
+// Import Swiper styles
 import 'swiper/css';
+ 
+export default () => {
 
-export default function SideSwiper(){
-    
-return (
-    <Swiper
-        className={styles.mySwiper}
-        modules={[Navigation, Pagination, Scrollbar]}
-        spaceBetween={50}
-        slidesPerView={3}
-        navigation
-        pagination={{ clickable: true }}
-        scrollbar={{ draggable: true }}
-      >
-        <SwiperSlide>
-          <div className={styles.imageContainerNext}>
-            <Image
-              className={styles.imageNext}
-              src={'/images/dribble-mockup.png'}
-              alt="Illustration of a person carrying ideas for a professional website design"
-              layout="fill"
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={styles.imageContainerNext}>
-            <div> img </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={styles.imageContainerNext}>
-            <div>Img2</div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={styles.imageContainerNext}>
-            <div>Img3</div>
-          </div>
-        </SwiperSlide>
-      </Swiper>
-)
-}
+  const r = useRouter();
+ return (
+   <FSBackground backgroundColor = "#999529">
+   <Swiper
+     spaceBetween={15}
+     slidesPerView={'auto'}
+     centeredSlides={true}
+     loop={true}
+     onSlideChange={() => console.log('slide change')}
+     onSwiper={(swiper) => console.log(swiper)}
+   >
+     <SwiperSlide style={{width: "30%"}}>Slide 1
+       <Card> Hello </Card>
+       <div>I will make big</div>
+     </SwiperSlide>
+     <SwiperSlide style={{width: "30%"}}>Slide 2
+       <Card>2</Card>
+     </SwiperSlide>
+     <SwiperSlide style={{width: "30%"}}>Slide 3
+     <Card>2</Card>
+     </SwiperSlide>
+ 
+   </Swiper>
+
+   <LongButton onClick={()=>r.push("/old_growth")}>Start</LongButton>
+   </FSBackground>
+ );
+};
 
 
 // export default function Home() {
