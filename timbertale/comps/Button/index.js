@@ -5,6 +5,7 @@ import { useRouter} from 'next/router'
 
 
 export const LongButton = styled.button `
+cursor: pointer;
 background: ${props => props.white ? "#FFF8EC" : "#EB6A00"};
 color: ${props => props.white ?  "#999529" : "#FFF8EC"};
 display: flex; 
@@ -22,12 +23,14 @@ box-shadow: 0px 5px 10px #BFBFBF;
 `
 
 export const ShortButton = styled(LongButton)`
+cursor: pointer;
 min-width: 100px;
 padding: 0.5em 0.25em; 
 margin-left:${props => props.marginleft || "0"};
 `
 
 const BButton = styled.button`
+cursor: pointer;
 font-family: 'Poppins', sans-serif;
 font-weight: 600; 
 color: #FFF8EC;
@@ -45,6 +48,7 @@ background-color: transparent;
 `;
 
 const SButton = styled.button`
+cursor: pointer;
 background: transparent;
 border: none;
 background-color: transparent;
@@ -71,9 +75,9 @@ export function BackButton(){
 }
 //onClick = {skiproute.push("/tutorial/last")}
 export function SkipButton(){
-        const skiproute = useRouter();
+        const r = useRouter();
         return(
-                <SButton >
+                <SButton onClick = { ()=> r.push("/tutorial/last")}>
                         SKIP 
                         <img src = "/skiparrow.svg"></img>                             
                 </SButton>

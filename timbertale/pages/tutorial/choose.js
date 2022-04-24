@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { FirstTutorial } from '../../comps/Display/tutorialBoxes';
+import { FirstTutorial } from '../../comps/Tutorial/TextCard';
 import { FSBackground} from '../../comps/Display';
 import { LongButton} from '../../comps/Button';
 import { motion } from "framer-motion";
