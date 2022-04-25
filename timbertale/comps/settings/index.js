@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ShortButton } from "../../Button";
+import { ShortButton } from "../Button";
 
 export const BigBox = styled.div`
 justify-content: center;
@@ -38,9 +38,9 @@ display: flex;
 justify-content: flex-end;
 `;
 
-import { FSBackground, SetLine } from "..";
+import { FSBackground, SetLine } from "../Display";
 import Image from "next/image";
-import Slider from "../../../public/slider.svg"
+import Slider from "../../public/slider.svg"
 
 export function SettingsOverlay () {
     return (

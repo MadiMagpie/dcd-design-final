@@ -4,9 +4,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { LearnBackground, Heading, Wrapper, RowWrapper} from "../../comps/Display";
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import OldGrowth  from '../../comps/Display/graphics-svg-jpeg/OldGrowth.jpg'
-import Sumatran  from '../../comps/Display/graphics-svg-jpeg/Sumatran.jpg'
-import Amazon from '../../comps/Display/graphics-svg-jpeg/amazon.jpg'
+import OldGrowth  from '../../public/OldGrowth.jpg'
+import Sumatran  from '../../public/Sumatran.jpg'
+import Amazon from '../../public/Amazon.jpg'
 
 
 import 'swiper/css';
