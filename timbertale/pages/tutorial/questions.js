@@ -5,6 +5,7 @@ import { ImgBackground, Wrapper, Desc, Box } from "../../comps/Display";
 import { WelcomeOG } from "../../comps/WelcomeCard";
 import Base from "../../comps/Base";
 import { SettingsDark } from "../../comps/Button";
+import { TutArrow, Tut1q } from "../../comps/Tutorial/arrows";
 
 export default function TutQuestion (){
 
@@ -20,7 +21,7 @@ return (
                       {qs[0].choices.map((pick)=> <Answer>{pick.choice}</Answer>)}
               </AnswerBox>
       </QuestionBox>
-      <img src="/greenarrow.svg"/><Wrapper> <Desc weight="600">Lets try picking this one</Desc></Wrapper>
+    <TutArrow>  <img src="/greenarrow.svg"/></TutArrow><Tut1q> <Desc weight="800">Lets try picking this one</Desc></Tut1q>
      
     </ImgBackground>
   )
