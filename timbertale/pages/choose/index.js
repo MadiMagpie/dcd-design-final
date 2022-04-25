@@ -1,7 +1,7 @@
 import { LongButton, BackButton, SkipButton, ShortButton, } from '../../comps/Button';
 import { ChooseTitle, ChooseInfo } from '../../comps/Display/choosecards';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { LearnBackground, Heading, Wrapper, RowWrapper} from "../../comps/Display";
+import { FSBackground, Heading, Wrapper, RowWrapper} from "../../comps/Display";
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import OldGrowth  from '../../public/OldGrowth.jpg'
@@ -20,7 +20,7 @@ export default () => {
 }
 
  return (
-   <LearnBackground backgroundcolor = "#999529">
+   <FSBackground backgroundcolor = "#999529">
     <RowWrapper marginbottom = "2em" margintop = "0">
       <BackButton onClick={()=>r.back}></BackButton>
       <SetButton onClick = {settingsHandler}><img src='/settingswhite.svg'/></SetButton>
@@ -64,6 +64,6 @@ export default () => {
   
    <LongButton onClick={()=>r.push("/old_growth")}>Start</LongButton>
    <LongButton onClick={()=>r.push("/howto")}>How to play</LongButton>
-   </LearnBackground>
+   </FSBackground>
  );
 };
