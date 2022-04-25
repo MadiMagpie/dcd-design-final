@@ -77,7 +77,7 @@ export function ThirdTutorial(){
                         marginbottom = "2em">
                                 <SkipButton></SkipButton>
                                 <h2>Question Time!</h2>
-                                <Desc> You’ll be asked a series of questions, and you’ll choose an answer. </Desc>
+                                <Desc> You'll be asked a series of questions, and you'll choose an answer. </Desc>
                                 <ShortButton marginleft = "75%" onClick = {() => r.push("/tutorial/questions")}> Next </ShortButton>      
 
                         </Wrapper>
@@ -85,3 +85,86 @@ export function ThirdTutorial(){
         )
 }
 
+
+export function WellDone(){
+        const r = useRouter();
+        return (
+                <Box as={motion.div} 
+                initial ={{y:-300}} 
+                animate = {{y:-50}} 
+                transiton={{type: "spring", stiffness: 700, damping: 60}}>       
+                        <Wrapper 
+                        margintop = "2em" 
+                        marginbottom = "2em">
+                                <SkipButton></SkipButton>
+                                <h2>Great Job!</h2>
+                                <img src="/correct03.svg"/>
+                                <Desc> That was the right answer and the tree grew taller! </Desc>
+                                <Desc> Let's try another question. </Desc>
+                                <ShortButton marginleft = "75%" onClick = {() => r.push("/tutorial/wrong")}> Next </ShortButton>      
+
+                        </Wrapper>
+                </Box>
+        )
+}
+
+export function Wrong(){
+        const r = useRouter();
+        return (
+                <Box as={motion.div} 
+                initial ={{y:-300}} 
+                animate = {{y:-50}} 
+                transiton={{type: "spring", stiffness: 700, damping: 60}}>       
+                        <Wrapper 
+                        margintop = "2em" 
+                        marginbottom = "2em">
+                                <SkipButton></SkipButton>
+                                <h2>Oh no!</h2>
+                                <img src="/incorrect03.svg"/>
+                                <Desc>That was the wrong answer and the lumberjack chopped the tree. </Desc>
+                                <ShortButton marginleft = "75%" onClick = {() => r.push("/tutorial/lives")}> Next </ShortButton>      
+
+                        </Wrapper>
+                </Box>
+        )
+}
+export function TutLives(){
+        const r = useRouter();
+        return (
+                <Box as={motion.div} 
+                initial ={{y:-300}} 
+                animate = {{y:-50}} 
+                transiton={{type: "spring", stiffness: 700, damping: 60}}>       
+                        <Wrapper 
+                        margintop = "2em" 
+                        marginbottom = "2em">
+                                <SkipButton></SkipButton>
+                                <h2>3 Chances</h2>
+                                <Desc> It looks like he took one of your axes. </Desc>
+                                <Desc> You can only get 3 questions wrong before the lumberjack chops down the tree.</Desc>
+                                <ShortButton marginleft = "75%" onClick = {() => r.push("/tutorial/finish")}> Next </ShortButton>      
+
+                        </Wrapper>
+                </Box>
+        )
+}
+
+export function GoodLuck (){
+        const r = useRouter();
+        return (
+                <Box as={motion.div} 
+                initial ={{y:-300}} 
+                animate = {{y:-50}} 
+                transiton={{type: "spring", stiffness: 700, damping: 60}}>       
+                        <Wrapper 
+                        margintop = "2em" 
+                        marginbottom = "2em">
+                                <SkipButton></SkipButton>
+                                <h2>Good Luck!</h2>
+                                <Desc> To save the forest, you'll have to make it through 10 questions about your chosen forest but not let the lumberjack chop down your tree.   </Desc>
+                                <ShortButton marginleft = "75%" onClick = {() => r.push("/")}> Finish </ShortButton>      
+
+                        </Wrapper>
+                </Box>
+        )
+}

@@ -1,7 +1,7 @@
 import { FSBackground, SetLine } from "../../comps/Display"
 import { ShortButton } from "../../comps/Button"
 import Image from "next/image"
-import { BigBox, Settings, SetText, SetBox, BSwitch, ButBox } from "../../comps/Display/settings"
+import { BigBox, Settings, SetText, SetBox, BSwitch, ButBox } from "../../comps/settings"
 import Slider from "../../public/slider.svg"
 import { useRouter } from "next/router"
 import TextSizing from "../../public/TextSizing.svg"
