@@ -16,6 +16,7 @@ export default function Home() {
         <div>
           <LongButton onClick = {()=> r.push("/choose")} minwidth = "300px">Start</LongButton>
           <LongButton onClick={()=> r.push("/tutorial")}minwidth = "300px">Tutorial</LongButton>
+          <LongButton onClick={()=> r.push("/learning")}minwidth = "300px">Learn</LongButton>
         </div>
     </FSBackground>
   )

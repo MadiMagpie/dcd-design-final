@@ -58,3 +58,36 @@ color: ${props => props.color || "#7D4D2B"};
 font-size: 1rem;
 font-weight: ${props => props.weight|| "400"};
 `;
+
+export const LearnBackground = styled.div` 
+background-color: ${props => props.backgroundcolor || "#7D4D2B"};
+display: flex;
+flex-direction: column; 
+align-items: center;
+justify-content: ${props => props.justifycontent || "center"};
+width: 100vw;
+`;
+
+export const RowWrapper = styled.div`
+max-width: 75%;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+text-align: center;
+position: relative;
+margin-left: 1em;
+margin-top: ${props => props.margintop || "1em"};
+margin-bottom: ${props => props.marginbottom || "1em"};
+`;
+
+export const HowtoLine = styled.hr`
+border-top: 0px solid #FFFFFF;
+border-radius: 2px;
+width: 30vw;
+`;
+
+export const SetLine = styled.hr`
+border-top: 1px solid #7D4D2B;
+width: 65%;
+`;
