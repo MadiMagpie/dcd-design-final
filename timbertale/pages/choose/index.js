@@ -1,7 +1,7 @@
 import { LongButton, BackButton, SkipButton, ShortButton } from '../../comps/Button';
 import { ChooseTitle, ChooseInfo } from '../../comps/Display/choosecards';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FSBackground } from "../../comps/Display";
+import { FSBackground, Wrapper, Heading, Desc } from "../../comps/Display";
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import OldGrowth  from '../../comps/Display/graphics-svg-jpeg/OldGrowth.jpg'

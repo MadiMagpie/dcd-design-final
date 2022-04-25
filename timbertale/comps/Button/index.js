@@ -13,12 +13,12 @@ font-family: 'Poppins', sans-serif;
 font-weight: 500;
 align-items: center;
 justify-content: center; 
-font-size: 1.5em; 
+font-size: ${props => props.size||"1.5em"}; 
 margin: 1em;
 padding: 1em 2em;
 border-radius: 15px;
 border-style: none; 
-min-width: 300px;
+min-width: 50%;
 box-shadow: 0px 5px 10px #BFBFBF;
 `
 

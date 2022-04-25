@@ -20,6 +20,8 @@ margin-bottom: 20px;
 
 export const ImgBackground = styled(FSBackground)`
 background: ${props => `url(${props.background}) bottom center/ cover no-repeat`};
+height: 100vh;
+width: 100vw;
 `
 
 export const Box = styled.div`
@@ -54,5 +56,5 @@ font-weight: 600;
 export const Desc = styled.p`
 color: ${props => props.color || "#7D4D2B"};
 font-size: 1rem;
-font-weight: 400;
+font-weight: ${props => props.weight|| "400"};
 `;
