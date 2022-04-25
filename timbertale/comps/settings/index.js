@@ -3,6 +3,7 @@ import { ShortButton } from "../Button";
 import { FSBackground, SetLine } from "../Display";
 import Image from "next/image";
 import Slider from "../../public/slider.svg"
+import { useRouter } from "next/router";
 
 export const BigBox = styled.div`
 justify-content: center;
@@ -57,6 +58,7 @@ z-index: 2;
 `;
 
 export function SettingsModal () {
+    const r = useRouter();
     return (
        <BigBox>
         <Settings>
