@@ -83,3 +83,34 @@ export function SkipButton(){
                 </SButton>
         )
 }
+
+const SetButton = styled.button`
+cursor: pointer;
+color: #FFF8EC;
+display: flex;
+
+position: absolute;
+align-items: center;
+top: 5%;
+right: 5%;
+border: none;
+background-color: transparent;
+`;
+
+export function SettingsLight(){
+        const r = useRouter();
+        return(
+                <SetButton onClick={()=>r.push("/setting")}>
+                        <img src='/settingswhite.svg'/>
+                </SetButton>
+        )
+}
+
+export function SettingsDark(){
+        const r = useRouter();
+        return(
+                <SetButton onClick={()=>r.push("/setting")}>
+                        <img src='/settings.svg'/>
+                </SetButton>
+        )
+}

@@ -17,7 +17,7 @@ export function WelcomeTutorial(){
                                 <h3>We’ll be walking you through how to play, and what to expect!</h3>
                                 <p>This should take you about 2 minutes.</p>
                         </Wrapper>
-                        <ShortButton marginleft = "75%" onClick = {() => r.push("/tutorial/choose")}> Next </ShortButton>      
+                        <ShortButton marginleft = "65%" onClick = {() => r.push("/tutorial/choose")}> Next </ShortButton>      
                 </Box>
         )
 }

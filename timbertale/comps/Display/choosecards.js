@@ -34,17 +34,17 @@ export default function SwiperForest () {
      loop={true}
      onSlideChange={() => console.log('slide change')}
      onSwiper={(swiper) => console.log(swiper)}
-   >
-     <SwiperSlide style={{width: "30%"}}>
-       <Image src={Amazon}
-       alt='amazon'
+   > 
+   <SwiperSlide style={{width: "30%"}}>
+     <Image src={OldGrowth}
+       alt='oldGrowth'
        width={300}
        height={500}
       />
      </SwiperSlide>
      <SwiperSlide style={{width: "30%"}}>
-     <Image src={OldGrowth}
-       alt='oldGrowth'
+       <Image src={Amazon}
+       alt='amazon'
        width={300}
        height={500}
       />

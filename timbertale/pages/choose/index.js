@@ -1,23 +1,24 @@
-import { LongButton, BackButton, SkipButton, ShortButton } from '../../comps/Button';
+import { LongButton, BackButton, SkipButton, ShortButton, SettingsLight} from '../../comps/Button';
 import { ChooseTitle, ChooseInfo } from '../../comps/Display/choosecards';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FSBackground, Wrapper, Heading, Desc } from "../../comps/Display";
+import { LearnBackground, Heading } from "../../comps/Display";
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import OldGrowth  from '../../comps/Display/graphics-svg-jpeg/OldGrowth.jpg'
 import Sumatran  from '../../comps/Display/graphics-svg-jpeg/Sumatran.jpg'
 import Amazon from '../../comps/Display/graphics-svg-jpeg/amazon.jpg'
 
+
 import 'swiper/css';
  
-export default function SwiperTrees () {
+export default () => {
 
   const r = useRouter();
  return (
-   <FSBackground backgroundColor = "#999529">
+   <LearnBackground backgroundColor = "#999529">
      <BackButton onClick={()=>r.back}></BackButton>
-     <div onClick={()=>r.push("/settingstest")}>Settings</div>
-   <ChooseTitle>Select Your Forest</ChooseTitle>
+     <SettingsLight></SettingsLight>
+   <Heading color="#FFFFFF">Select Your Forest</Heading>
    <ChooseInfo>Forests are important and grow in many places around the world. They are an ecosystem which includes many plants and animals.</ChooseInfo>
    <Swiper
      spaceBetween={10}
@@ -26,17 +27,17 @@ export default function SwiperTrees () {
      loop={true}
      onSlideChange={() => console.log('slide change')}
      onSwiper={(swiper) => console.log(swiper)}
-   >
-     <SwiperSlide style={{width: "30%"}}>
-       <Image src={Amazon}
-       alt='amazon'
+   >  
+    <SwiperSlide style={{width: "30%"}}>
+     <Image src={OldGrowth}
+       alt='oldGrowth'
        width={300}
        height={500}
       />
      </SwiperSlide>
      <SwiperSlide style={{width: "30%"}}>
-     <Image src={OldGrowth}
-       alt='oldGrowth'
+       <Image src={Amazon}
+       alt='amazon'
        width={300}
        height={500}
       />
@@ -51,6 +52,7 @@ export default function SwiperTrees () {
    </Swiper>
 
    <LongButton onClick={()=>r.push("/old_growth")}>Start</LongButton>
-   </FSBackground>
+   <LongButton onClick={()=>r.push("/howto")}>How to play</LongButton>
+   </LearnBackground>
  );
 };
