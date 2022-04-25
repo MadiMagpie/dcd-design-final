@@ -66,16 +66,16 @@ flex-direction: column;
 align-items: center;
 justify-content: ${props => props.justifycontent || "center"};
 width: 100vw;
+height: 100vh;
 `;
 
 export const RowWrapper = styled.div`
-max-width: 75%;
+height:50px;
 display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: center;
 text-align: center;
-position: relative;
 margin-left: 1em;
 margin-top: ${props => props.margintop || "1em"};
 margin-bottom: ${props => props.marginbottom || "1em"};

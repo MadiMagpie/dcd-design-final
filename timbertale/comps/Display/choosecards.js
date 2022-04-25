@@ -5,13 +5,15 @@ display: flex;
 font-family: 'Poppins', sans-serif;
   font-weight: 600;
   color: #FFFFFF;
+  font-size:2em;
 `;
 
 export const ChooseInfo = styled.h3`
 display: flex;
 text-align: center;
-width: 50vw;
+width: ${props => props.width || "75%"};
 color: #FFFFFF;
+font-size: 1em;
 `;
 
 import { Swiper, SwiperSlide } from 'swiper/react';

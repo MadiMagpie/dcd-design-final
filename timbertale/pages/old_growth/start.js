@@ -4,12 +4,13 @@ import { ogbg } from "../../data/og_bg";
 import { ImgBackground } from "../../comps/Display";
 import { useState } from "react";
 import styled from "styled-components";
-import LifeHolder from "../../comps/Lives";
+import { lives } from "../../data/lives";
 import { motion } from "framer-motion";
+import { SettingsDark } from "../../comps/Button";
 
 
 const QuestionBox = styled.div`
-background: #FFFAF1;
+background: #FFFAF199;
 display: flex;
 border-radius: 25px; 
 max-width: 500px;
@@ -27,7 +28,8 @@ flex-wrap: wrap;
 flex-direction: row;
 align-items: center;
 justify-content: space-evenly;
-max-width: 250px;`;
+max-width: 250px;
+`;
 
 const Question = styled.div`
 font-family: 'Poppins', sans-serif;
@@ -39,7 +41,7 @@ justify-content: center;
 text-align: center;
 font-weight: 500;
 color: #7D4D2B;
-font-size: 1.5 rem;
+font-size: 1.25em;
 `;
 
 const Answer = styled.button`
@@ -69,27 +71,32 @@ border-style: none;
 
 export default function OldGrowthStart() {
         const [currentQuestion, setCurrentQuestion] = useState(0);
-        const [showEnd, setShowEnd] = useState(false);
-        const [questionResult, setQuestionResult] = useState(0);
+        const [showCorrect, setShowCorrect] = useState(false);
         const [currentBackground, setCurrentBackground] = useState(0);
+        const [currentLives, setCurrentLives] = useState(0);
+        const r = useRouter();
 
         const handleChoiceClick = (isCorrect) =>{
                 const nextBackground = currentBackground +1;
-
+                const minusLife = currentLives +1;
                 if (isCorrect === true){
                         setCurrentBackground(nextBackground);
                 } else{
-                        alert ("wrong");
+                        if(minusLife < lives.length){
+                                setCurrentLives(minusLife); 
+                        } else {
+                                //if lives run out, chop down tree 
+                               r.push("endLose");
+                        } 
                 }
-
 
                 const nextQuestion = currentQuestion + 1;
                 //make sure you dont go out of array scope
                 if(nextQuestion < qs.length){
                       setCurrentQuestion(nextQuestion);  
                 } else {
-                        //do something when array does go out of scope;
-                        setShowEnd(true);
+                        //do something when question array does go out of scope;
+                        r.push("endWin");
                 }
         }
 
@@ -97,17 +104,15 @@ export default function OldGrowthStart() {
     return (
       <ImgBackground background = "/oldgrowth.svg">
         <div className = "base">
-                <LifeHolder></LifeHolder>
-                {/* add settings comp here*/}
+                {lives[currentLives].status}
+                <SettingsDark/>
                 <img className = "lumberjack" src = "/lumberjack1.svg"/>
                 <img className="startTree" src = {ogbg[currentBackground].bg}/>
-                {/* <img className="startTree" src = "/OldGrowth_Stage1.svg"/> */}
-
         </div>
         <QuestionBox
         as={motion.div} 
-        animate = {{y:30}} 
-        transiton={{delay:500}}>
+        animate = {{y:-30}} 
+        transiton={{delay:5000}}>
                 <Question>
                 {qs[currentQuestion].title}
                 </Question>

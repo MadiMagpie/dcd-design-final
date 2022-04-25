@@ -10,7 +10,7 @@ export const qs = [
         // answer:choices[0]
     },   
     {   
-        title:"What percent of BCs forest are old growth?",
+        title:"What percent of BCs forests are old growth?",
         choices:[
             {choice: "46%",  isCorrect: false}, 
             {choice:"12%", isCorrect: false}, 

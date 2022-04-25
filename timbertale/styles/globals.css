@@ -69,3 +69,7 @@ h3{
 .life{
   width: 75%;
 }
+.nolife{
+  width: 75%;
+  visibility: hidden;
+}

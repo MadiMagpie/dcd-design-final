@@ -15,6 +15,7 @@ align-items: center;
 justify-content: center; 
 font-size: ${props => props.size||"1.5em"}; 
 margin: 1em;
+margin-bottom:${props => props.marginbottom||"1em"};
 padding: 1em 2em;
 border-radius: 15px;
 border-style: none; 
@@ -87,11 +88,10 @@ export function SkipButton(){
 const SetButton = styled.button`
 cursor: pointer;
 color: #FFF8EC;
-display: flex;
-
-position: absolute;
+width: 50px;
+position: fixed;
 align-items: center;
-top: 5%;
+top: 4%;
 right: 5%;
 border: none;
 background-color: transparent;
