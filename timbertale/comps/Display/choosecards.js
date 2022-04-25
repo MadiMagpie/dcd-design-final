@@ -1,43 +1,15 @@
 import styled from "styled-components";
-// import Swiper from 'swiper';
-// import 'swiper/css';
 
-// const swiper = new Swiper(".swiper", {
-//     direction: 'vertical',
-//     loop: true,
-    
-//     pagination: {
-//         el: '.swiper-pagination',
-//     }
-// })
-
-// export function SideSwiper(){
-//     return (
-//         <div class="swiper">
-//             <div class="swiper-wrapper">
-//                 <div class="swiper-slider">Slider 1</div>
-//                 <div class="swiper-slider">Slider 2</div>
-//                 <div class="swiper-slider">Slider 3</div>
-//             </div>
-//         </div>
-//     )
-// }
-
-export const Card = styled.div `
-background: #FFFAF1;
+export const ChooseTitle = styled.h1`
 display: flex;
-border-radius:25px; 
-max-width: 750px;
-width: 100px;
-flex-direction: column;
-align-items: center;
-margin: 15% 5%;
-padding: 10%
+font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #FFFFFF;
 `;
 
-export const Slider = styled.div`
-max-width: 75%;
+export const ChooseInfo = styled.h3`
 display: flex;
-flex-direction: row;
-justify-content: center;
+text-align: center;
+width: 50vw;
+color: #FFFFFF;
 `;

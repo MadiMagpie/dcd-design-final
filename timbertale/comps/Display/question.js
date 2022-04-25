@@ -10,7 +10,7 @@ max-height: 500px;
 flex-direction: column;
 align-items: center;
 margin: 15% 5%;
-padding: 0px 0px 15px 15px;
+padding: 0px 15px 15px 15px;
 justify-content: center;
 `;
 
