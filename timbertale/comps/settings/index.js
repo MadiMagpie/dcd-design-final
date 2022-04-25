@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { ShortButton } from "../Button";
+import { FSBackground, SetLine } from "../Display";
+import Image from "next/image";
+import Slider from "../../public/slider.svg"
 
 export const BigBox = styled.div`
 justify-content: center;
@@ -8,6 +11,7 @@ border-radius:25px;
 max-width: 500px;
 min-width: 150px;
 max-height: 500px;
+z-index: 2;
 `;
 
 export const Settings = styled.div`
@@ -16,6 +20,7 @@ export const Settings = styled.div`
 export const SetText = styled.div`
 display: flex;
 flex-direction: column;
+
 `;
 
 export const ButBox = styled.div`
@@ -38,13 +43,21 @@ display: flex;
 justify-content: flex-end;
 `;
 
-import { FSBackground, SetLine } from "../Display";
-import Image from "next/image";
-import Slider from "../../public/slider.svg"
+export const SetButton = styled.button`
+cursor: pointer;
+color: #FFF8EC;
+width: 50px;
+position: fixed;
+align-items: center;
+top: 4%;
+right: 5%;
+border: none;
+background-color: transparent;
+z-index: 2;
+`;
 
-export function SettingsOverlay () {
+export function SettingsModal () {
     return (
-        <FSBackground>
        <BigBox>
         <Settings>
             <SetText>
@@ -54,7 +67,7 @@ export function SettingsOverlay () {
                 width={50}
                 heigh={50}/></BSwitch>
             </SetBox>    
-<SetLine/>
+            <SetLine/>
             <SetBox>
                 Sound Effects
                 <BSwitch><Image src={Slider}
@@ -76,10 +89,31 @@ export function SettingsOverlay () {
             <SetLine/>
         </Settings>
         <ButBox>
-        <ShortButton>Home</ShortButton>
+        <ShortButton onClick = {()=>r.push("/")}>Home</ShortButton>
         <ShortButton>Continue</ShortButton>
         </ButBox>
         </BigBox>
-        </FSBackground>
     )
+}
+
+// export function SettingsLight(){
+//     const r = useRouter();
+//     return(
+//             <SetButton onClick={()=>r.push("/setting")}>
+//                     <img src='/settingswhite.svg'/>
+//             </SetButton>
+//     )
+// }
+
+
+// export function SettingsDark(){
+//     const r = useRouter();
+//     return(
+//             <SetButton>
+//                     <img src='/settings.svg'/>
+//             </SetButton>
+//     )
+// }
+export function SettingsBackdrop(){
+    <FSBackground backgroundcolor = "#7D4D2B"></FSBackground>
 }

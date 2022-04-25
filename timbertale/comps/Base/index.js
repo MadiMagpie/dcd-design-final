@@ -7,7 +7,7 @@ export default function Base(){
                 <div className = "base">
                        
                         <LifeHolder></LifeHolder>
-                        {/* add settings comp w className = "settings" */}
+                        <SettingsDark/>
                         <img className = "lumberjack" src = "/lumberjack1.svg"/>
                         <img className="startTree" src = "/OldGrowth_Stage1.svg"/> 
                 </div>

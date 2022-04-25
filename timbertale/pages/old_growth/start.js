@@ -6,7 +6,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { lives } from "../../data/lives";
 import { motion } from "framer-motion";
-import { SettingsDark } from "../../comps/Button";
+import { SettingsModal, SetButton, SettingsBackdrop } from "../../comps/settings";
 
 
 const QuestionBox = styled.div`
@@ -58,23 +58,17 @@ font-size: 1rem;
 border-style: none; 
 `;
 
-// function Base(){
-//         return(
-//                 <div className = "base">
-//                         <LifeHolder></LifeHolder>
-//                         {/* add settings comp here*/}
-//                         <img className = "lumberjack" src = "/lumberjack1.svg"/>
-//                         <img className="startTree" src = "/OldGrowth_Stage1.svg"/>
-//                 </div>
-//          )
-// }
-
 export default function OldGrowthStart() {
         const [currentQuestion, setCurrentQuestion] = useState(0);
         const [showCorrect, setShowCorrect] = useState(false);
         const [currentBackground, setCurrentBackground] = useState(0);
         const [currentLives, setCurrentLives] = useState(0);
+        const [settingsOpen, setSettingsOpen] = useState(false);
         const r = useRouter();
+
+        function settingsHandler(){
+                setSettingsOpen(true);
+        }
 
         const handleChoiceClick = (isCorrect) =>{
                 const nextBackground = currentBackground +1;
@@ -105,10 +99,13 @@ export default function OldGrowthStart() {
       <ImgBackground background = "/oldgrowth.svg">
         <div className = "base">
                 {lives[currentLives].status}
-                <SettingsDark/>
+                <SetButton onClick = {settingsHandler}> <img src='/settings.svg'/></SetButton>
                 <img className = "lumberjack" src = "/lumberjack1.svg"/>
                 <img className="startTree" src = {ogbg[currentBackground].bg}/>
         </div>
+        {settingsOpen && <SettingsModal/>}
+        {settingsOpen && <SettingsBackdrop/>}
+        
         <QuestionBox
         as={motion.div} 
         animate = {{y:-30}} 
