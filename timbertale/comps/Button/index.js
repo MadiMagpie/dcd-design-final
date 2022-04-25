@@ -18,7 +18,7 @@ margin: 1em;
 padding: 1em 2em;
 border-radius: 15px;
 border-style: none; 
-min-width: 50%;
+min-width: ${props => props.minwidth||"50%"};
 box-shadow: 0px 5px 10px #BFBFBF;
 `
 

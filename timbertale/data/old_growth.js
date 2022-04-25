@@ -1,52 +1,94 @@
 export const qs = [
     {   
-        title:"BC's oldest tree from an old growth?",
-        choice:["1835 Years", "683 Years", "948 Years", "1362 Years"],
-        // answer:choice[0]
+        title:"How old is BC's oldest tree?",
+        choices:[
+            {choice: "1835 Years", isCorrect: true}, 
+            {choice: "683 Years", isCorrect: false},
+            {choice: "948 Years" , isCorrect: false},
+            {choice: "1362 Years" , isCorrect: false},
+         ],
+        // answer:choices[0]
     },   
     {   
-        title:"Percent of BCs forest that are old growth?",
-        choice:["46%", "12%", "20%", "29%"],
-        // answer:choice[2]
+        title:"What percent of BCs forest that are old growth?",
+        choices:[
+            {choice: "46%",  isCorrect: false}, 
+            {choice:"12%", isCorrect: false}, 
+            {choice:"20%", isCorrect: true}, 
+            {choice:"29%", isCorrect: false},
+        ],
+        // answer:choices[2]
     },
     {   
         title:"Main trees that make up the old growth in BC",
-        choice:["Hemlocks", "Cedars", "Spruces", "Firs"],
-        // answer:choice[3]
+        choices:[
+            {choice: "Hemlocks", isCorrect: false}, 
+            {choice:"Cedars", isCorrect: false}, 
+            {choice:"Spruces", isCorrect: false}, 
+            {choice:"Firs", isCorrect: true}],
+        // answer:choices[3]
     },
     {   
         title:"Widest tree in BCs old growth?",
-        choice:["12ft (3.6m)", "60 ft (18.3m)", "30ft (9.1m)", "80ft (24.4m)"],
-        // answer:choice[1]
+        choices:[
+            {choice:"12ft (3.6m)", isCorrect: false}, 
+            {choice:"60 ft (18.3m)", isCorrect: true}, 
+            {choice:"30ft (9.1m)", isCorrect: false}, 
+            {choice:"80ft (24.4m)", isCorrect: false}],
+        // answer:choices[1]
     },
     {   
         title:"What percentage of BC original old growth is protected?",
-        choice:["15%", "32%", "21%", "6%"],
-        // answer:choice[3]
+        choices:[
+            {choice:"15%", isCorrect: false}, 
+            {choice:"32%", isCorrect: false}, 
+            {choice:"21%", isCorrect: false}, 
+            {choice:"6%", isCorrect: true}],
+        // answer:choices[3]
     },
     {   
         title:"How many hectares are logged anually?",
-        choice:["6%", "90,000", "120,000", "50,000"],
-        // answer:choice[0]
+        choices:[
+            {choice:"140,000", isCorrect: true},
+            {choice:"90,000", isCorrect: false},
+            {choice:"120,000", isCorrect: false},
+            {choice:"50,000", isCorrect: false}],
+        // answer:choices[0]
     },
     {   
         title:"How many species rely on BC's old growth forests?",
-        choice:["0-150", "150-300", "300-400", "400+"],
-        // answer:choice[3]
+        choices:[
+            {choice:"0-150", isCorrect: false},
+            {choice:"150-300", isCorrect: false}, 
+            {choice:"300-400", isCorrect: false}, 
+            {choice:"400+", isCorrect: true}],
+        // answer:choices[3]
     },
     {   
         title:"How many years for a forest to be considered old growth in BC?",
-        choice:["250 Years", "100 Years", "200 Years", "150 Years"],
-        // answer:choice[0]
+        choices:[
+            {choice:"250 Years", isCorrect: true}, 
+            {choice:"100 Years", isCorrect: false}, 
+            {choice:"200 Years", isCorrect: false}, 
+            {choice:"150 Years", isCorrect: false}],
+        // answer:choices[0]
     },
     {   
-        title:"Where are BCs largest old growth forest?",
-        choice:["Northern", "Van Island", "Okanagan", "Metro Van"],
-        // answer:choice[1]
+        title:"Where are BCs largest old growth forests located?",
+        choices:[
+            {choice:"Northern", isCorrect: false}, 
+            {choice:"Van Island", isCorrect: true}, 
+            {choice:"Okanagan", isCorrect: false}, 
+            {choice:"Metro Van", isCorrect: false}],
+        // answer:choices[1]
     },
     {   
         title:"Tallest Tree in BCs old growth?",
-        choice:["260ft", "190ft", "315ft", "410ft"],
-        // answer:choice[2]
+        choices:[
+            {choice:"260ft", isCorrect: false}, 
+            {choice:"190ft", isCorrect: false}, 
+            {choice:"315ft", isCorrect: true}, 
+            {choice:"410ft", isCorrect: false}],
+        // answer:choices[2]
     },
     ];

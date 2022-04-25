@@ -2,16 +2,24 @@ import { Box } from "../Display";
 import styled from 'styled-components';
 
 const LifeBox = styled.div`
-color: #FFF8EC;
+background-color: #FFF8EC;
+padding: 10px;
 display: flex;
 flex-direction: row;
-justify-content: space-between;
-width: 15%;
+justify-content: space-around;
+border-radius: 5px;
+align-items: center;
 position: fixed;
+top: 25px;
+left: 25px;
 `
 
 export default function LifeHolder(){
         return(
-                <LifeBox></LifeBox>
+                <LifeBox>
+                        <img className = "life" src = "/axe.svg"></img>
+                        <img className = "life" src = "/axe.svg"></img>
+                        <img className = "life" src = "/axe.svg"></img>
+                </LifeBox>
         )
 }

@@ -14,7 +14,7 @@ export function WelcomeOG(props){
                                 <Desc weight = "500">There will be 10 questions to answer for you to try to save the forest!</Desc>
                                 <Desc> Be careful of the lumberjack!</Desc>
                         </Wrapper>
-                        <LongButton size = "1em" onClick = {() => r.push("/tutorial/choose")}> Let's Start! </LongButton>      
+                        <LongButton size = "1em" onClick = {() => r.push("/old_growth/start")}> Let's Start! </LongButton>      
                 </Box>
         )
 }

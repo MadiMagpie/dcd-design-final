@@ -6,13 +6,20 @@ import { WelcomeOG } from "../../comps/WelcomeCard";
 import Base from "../../comps/Base";
 
 
-export default function OldGrowth() {
+export default function OldGrowthStart() {
     
-  
     return (
       <ImgBackground background = "/oldgrowth.svg">
         <Base></Base>
-        <WelcomeOG heading = "Welcome to the Old Growth Forest!"></WelcomeOG>
+        <QuestionBox>
+                <Question>
+                {qs[0].title}
+                </Question>
+                <AnswerBox>
+                        {qs[0].choices.map((pick)=> <Answer>{pick.choice}</Answer>)}
+                </AnswerBox>
+        </QuestionBox>
+      
       </ImgBackground>
     )
   }

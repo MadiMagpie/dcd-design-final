@@ -3,14 +3,13 @@ import styled from "styled-components";
 export const QuestionBox = styled.div`
 background: #FFFAF1;
 display: flex;
-border-radius:25px; 
+border-radius: 25px; 
 max-width: 500px;
 min-width: 200px;
-max-height: 500px;
 flex-direction: column;
 align-items: center;
 margin: 15% 5%;
-padding: 0px 0px 15px 15px;
+padding: 20px 15px;
 justify-content: center;
 `;
 
@@ -20,9 +19,7 @@ flex-wrap: wrap;
 flex-direction: row;
 align-items: center;
 justify-content: space-evenly;
-max-width: 250px;
-max-height: 125px;
-`;
+max-width: 250px;`;
 
 export const Question = styled.div`
 display: flex;
@@ -31,13 +28,21 @@ padding: 10px;
 margin: 10px;
 justify-content: center;
 text-align: center;
+font-weight: 500;
+color: #7D4D2B;
+font-size: 1.35 rem;
+
 `;
 
 export const Answer = styled.div`
 background: #EB6A00;
-display: flex;
-margin: 10px;
-padding: 10px;
-border-radius: 15px;
+margin: 15px 10px;
+padding: 15px 10px;
+border-radius: 8px;
 text-align: center;
+color: #FFFAF1;
+min-width: 100px;
+font-weight: 500;
+font-size: 1rem;
+
 `;
