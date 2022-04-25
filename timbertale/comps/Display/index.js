@@ -8,6 +8,7 @@ align-items: center;
 justify-content: ${props => props.justifycontent || "center"};
 width: 100vw;
 height: 100vh;
+z-index: ${props => props.zindex || "1"}
 `;
 
 export const SmallIcon = styled.img.attrs(props => ({
