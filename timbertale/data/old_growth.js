@@ -10,7 +10,7 @@ export const qs = [
         // answer:choices[0]
     },   
     {   
-        title:"What percent of BCs forest that are old growth?",
+        title:"What percent of BCs forest are old growth?",
         choices:[
             {choice: "46%",  isCorrect: false}, 
             {choice:"12%", isCorrect: false}, 
@@ -20,7 +20,7 @@ export const qs = [
         // answer:choices[2]
     },
     {   
-        title:"Main trees that make up the old growth in BC",
+        title:"What is the main tree type that makes up the old growth forests?",
         choices:[
             {choice: "Hemlocks", isCorrect: false}, 
             {choice:"Cedars", isCorrect: false}, 
@@ -29,13 +29,13 @@ export const qs = [
         // answer:choices[3]
     },
     {   
-        title:"Widest tree in BCs old growth?",
+        title:"How wide is the widest tree in BCs old growth forest?",
         choices:[
-            {choice:"12ft (3.6m)", isCorrect: false}, 
-            {choice:"60 ft (18.3m)", isCorrect: true}, 
-            {choice:"30ft (9.1m)", isCorrect: false}, 
-            {choice:"80ft (24.4m)", isCorrect: false}],
-        // answer:choices[1]
+            {choice:"12ft", isCorrect: false}, 
+            {choice:"60ft", isCorrect: true}, 
+            {choice:"30ft", isCorrect: false}, 
+            {choice:"80ft", isCorrect: false}],
+        // answer:choices[1] 3.6m, 18.3m, 9.1m, 24.4m
     },
     {   
         title:"What percentage of BC original old growth is protected?",
@@ -47,7 +47,7 @@ export const qs = [
         // answer:choices[3]
     },
     {   
-        title:"How many hectares are logged anually?",
+        title:"How many hectares of forest are logged anually?",
         choices:[
             {choice:"140,000", isCorrect: true},
             {choice:"90,000", isCorrect: false},

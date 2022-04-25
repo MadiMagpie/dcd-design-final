@@ -34,7 +34,7 @@ font-size: 1.35 rem;
 
 `;
 
-export const Answer = styled.div`
+export const Answer = styled.button`
 background: #EB6A00;
 margin: 15px 10px;
 padding: 15px 10px;
@@ -44,5 +44,6 @@ color: #FFFAF1;
 min-width: 100px;
 font-weight: 500;
 font-size: 1rem;
+border-style: none; 
 
 `;
