@@ -2,8 +2,8 @@ import { useRouter } from 'next/router'
 import { FirstTutorial } from '../../comps/Tutorial/TextCard';
 import { FSBackground} from '../../comps/Display';
 import { LongButton} from '../../comps/Button';
-import { motion } from "framer-motion";
-
+import { motion, SwitchLayoutGroupContext } from "framer-motion";
+import SwiperForest from '../../comps/Display/choosecards';
 
 
 export default function ChooseForestTutorial(){
@@ -11,6 +11,7 @@ export default function ChooseForestTutorial(){
         return (
                 <FSBackground backgroundcolor = "#999529" justifycontent = "space-around">
                         <FirstTutorial></FirstTutorial>
+                        <SwiperForest></SwiperForest>
                         <LongButton as={motion.div} 
                         initial ={{ scale:0 }} 
                         animate = {{scale:1}} 
