@@ -36,24 +36,32 @@ h3{
   font-size: 1.25rem;
 
 }
+
 .logo{
   width: 75%;
+  max-width: 750px;
   min-width: 300px;
   height:auto;
   margin: 10% 5%;
 }
 
-@keyframes bouncein {
-  from{
-    top: -50vh;
-  }
-  95%{
-    top:15vh;
-  }
-  to{
-    top: 10vh;
-  }
+.base{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-.bounceIn{
-  animation: bouncein 1s ease-in-out forwards;
+
+.startTree{
+  position:fixed;
+  bottom: -7px;
+  left: 14%;
+  height: 100%
+}
+
+.lumberjack{
+  height: 20%;
+  position: fixed;
+  bottom: 7px;
+  left: 12%
 }

@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { useRouter } from 'next/router'
-import { FSBackground, Wrapper, Box } from "../Display";
-import { BackButton, SkipButton, ShortButton } from "../Button";
+import { Wrapper, Box } from "../Display";
+import { SkipButton, ShortButton } from "../Button";
 import { motion } from "framer-motion";
 
 export function WelcomeTutorial(){
