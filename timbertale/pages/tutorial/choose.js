@@ -4,13 +4,21 @@ import { FSBackground} from '../../comps/Display';
 import { LongButton, SettingsDark} from '../../comps/Button';
 import { motion, SwitchLayoutGroupContext } from "framer-motion";
 import SwiperForest from '../../comps/Display/choosecards';
+import { SetButton, SettingsModal, SettingsBackdrop } from "../../comps/settings";
+import { useState } from "react";
 
 
 export default function ChooseForestTutorial(){
+        const [settingsOpen, setSettingsOpen] = useState(false);
+      
+        function settingsHandler(){
+          setSettingsOpen(true);
+      }
+
         const r = useRouter();
         return (
                 <FSBackground backgroundcolor = "#999529" justifycontent = "space-around">
-                        <SettingsDark></SettingsDark>
+                        <SetButton onClick = {settingsHandler}> <img src='/settings.svg'/></SetButton>
                         <FirstTutorial></FirstTutorial>
                         <SwiperForest></SwiperForest>
                         <LongButton as={motion.div} 
@@ -19,6 +27,8 @@ export default function ChooseForestTutorial(){
                         transiton={{type: "spring", stiffness: 700, damping: 60}}
                         onClick={()=> r.push("/tutorial/start")}
                         >Start</LongButton>
+                        {settingsOpen && <SettingsModal/>}
+                        {settingsOpen && <SettingsBackdrop/>}
                 </FSBackground>
         )
 }
