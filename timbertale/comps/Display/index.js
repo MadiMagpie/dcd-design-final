@@ -18,6 +18,13 @@ width: 20%;
 height: 20%;
 margin-bottom: 20px;
 `
+export const LargeIcon = styled.img.attrs(props => ({
+        src : props.src
+}))`
+width: 50%;
+height: 50%;
+margin: auto;
+`
 
 export const ImgBackground = styled(FSBackground)`
 background: ${props => `url(${props.background}) bottom center/ cover no-repeat`};
@@ -89,6 +96,6 @@ width: 30vw;
 `;
 
 export const SetLine = styled.hr`
-border-top: 1px solid #7D4D2B;
-width: 65%;
+border-top: 0.5px solid #7D4D2B;
+width: 85%;
 `;

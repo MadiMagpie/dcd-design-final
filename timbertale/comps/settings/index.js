@@ -4,7 +4,6 @@ import { FSBackground, SetLine, Wrapper } from "../Display";
 import Image from "next/image";
 import Slider from "../../public/slider.svg"
 import { useRouter } from "next/router";
-import { useState } from "react";
 
 
 export const BigBox = styled.div`
@@ -108,15 +107,6 @@ export function SettingsSlide (props) {
 
 export function SettingsModal(props) {
     const r = useRouter();
-    const [settingsOpen, setSettingsOpen] = useState(true);
-
-    function settingsHandler(){
-        setSettingsOpen(true);
-    }
-    function closeSettingsHandler(){
-        setSettingsOpen(false);
-        }
-    
     return (
         <BigBox>
             <SettingItemWrapper>
@@ -156,32 +146,9 @@ export function SettingsModal(props) {
                 </SetText>
                 <ButBox>
                     <ShortButton marginleft = "20" onClick = {()=>r.push("/")}>Home</ShortButton>
-                    <ShortButton marginleft = "20" onClick = {closeSettingsHandler}>Continue</ShortButton>
+                    <ShortButton marginleft = "20"onClick = {props.onClick}>Continue</ShortButton>
                 </ButBox>
             </SettingItemWrapper>
         </BigBox>
     )
 }
-
-// export function SettingsLight(){
-//     const r = useRouter();
-//     return(
-//             <SetButton onClick={()=>r.push("/setting")}>
-//                     <img src='/settingswhite.svg'/>
-//             </SetButton>
-//     )
-// }
-
-
-// export function SettingsDark(){
-//     const r = useRouter();
-//     return(
-//             <SetButton>
-//                     <img src='/settings.svg'/>
-//             </SetButton>
-//     )
-// }
-// export function SettingsBackdrop(){
-//     // <FSBackground backgroundcolor = "#7D4D2B" zindex = "3"></FSBackground>
-
-// }

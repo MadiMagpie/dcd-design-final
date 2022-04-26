@@ -1,10 +1,9 @@
 import { ImgBackground, Heading } from "../../comps/Display";
 
-export default function youLost(){
+export default function youWon(){
         return(
-                <ImgBackground src = "/OldGrowth_CompleteFinalGrowCongrats-04.svg">
+                <ImgBackground background = "/OldGrowth_CompleteFinalGrowCongrats-04.svg">
                         <Heading> you won.</Heading>        
                 </ImgBackground>
         )
-        
 }
