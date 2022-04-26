@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { qs } from "../../data/old_growth";
 import { ogbg } from "../../data/og_bg";
-import { ImgBackground } from "../../comps/Display";
+import { ImgBackground, SmallIcon } from "../../comps/Display";
 import { useState } from "react";
 import styled from "styled-components";
 import { lives } from "../../data/lives";
@@ -61,6 +61,7 @@ border-style: none;
 export default function OldGrowthStart() {
         const [currentQuestion, setCurrentQuestion] = useState(0);
         const [showCorrect, setShowCorrect] = useState(false);
+        const [showIncorrect, setShowIncorrect] = useState(false);
         const [currentBackground, setCurrentBackground] = useState(0);
         const [currentLives, setCurrentLives] = useState(0);
         const [settingsOpen, setSettingsOpen] = useState(false);
@@ -71,8 +72,21 @@ export default function OldGrowthStart() {
         }
         function closeSettingsHandler(){
                 setSettingsOpen(false);
-                }
+        }
+
+        function showCorrectHandler(){
+                setShowCorrect(true);
+                setTimeout(() => {
+                        setShowCorrect(false);
+                }, 2000)
+        }
         
+        function showIncorrectHandler(){
+                setShowIncorrect(true);
+                setTimeout(() => {
+                        setShowIncorrect(false);
+                }, 2000)
+        }
                 //useEffect to re-render questionbox?
 
         const handleChoiceClick = (isCorrect) =>{
@@ -81,10 +95,14 @@ export default function OldGrowthStart() {
                 const nextQuestion = currentQuestion + 1;
 
                 if (isCorrect === true){
+                        showCorrectHandler();
                         setCurrentBackground(nextBackground);
                 } else{
+                        
                         if(minusLife < lives.length){
+                                showIncorrectHandler();
                                 setCurrentLives(minusLife); 
+                                 
                         } else {
                                 //if lives run out, chop down tree 
                                r.push("endLose");
@@ -92,7 +110,10 @@ export default function OldGrowthStart() {
                 }
                 //while there is still questions, give next q
                 if(nextQuestion < qs.length){
-                      setCurrentQuestion(nextQuestion);  
+                        setTimeout(() => {
+                                setCurrentQuestion(nextQuestion);  
+                        }, 2000)
+                      
                 } else {
                         //if out of questions, tree grows to win
                         r.push("endWin");
@@ -118,12 +139,13 @@ export default function OldGrowthStart() {
                 <Question>
                 {qs[currentQuestion].title}
                 </Question>
+                {showCorrect && <SmallIcon src = "/correct.svg"/>}
+                {showIncorrect && <SmallIcon src = "/incorrect.svg"/>}
                 <AnswerBox>
                         {qs[currentQuestion].choices.map((pick)=> 
                         <Answer onClick = {() => handleChoiceClick(pick.isCorrect)}>{pick.choice}</Answer>)}
                 </AnswerBox>
         </QuestionBox>
-      
       </ImgBackground>
     )
   }
