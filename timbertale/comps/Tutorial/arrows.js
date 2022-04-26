@@ -2,13 +2,15 @@ import styled from "styled-components";
 
 export const TutArrow = styled.div`
 position: absolute;
-bottom: 30vh;
+bottom: 38vh;
+left: 6vw;
 z-index: 2;
 `;
 
 export const Tut1q = styled.div`
 position: absolute;
-bottom: 26vh;
+bottom: 33vh;
+z-index: 2;
 `;
 
 export const TutArrow2 = styled.div`
