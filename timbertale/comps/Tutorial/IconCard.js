@@ -41,7 +41,6 @@ export function CorrectTutorialCard(){
                                 <Desc>That was the right answer and the tree grew taller!</Desc>
                                 <Desc>Let's try another question</Desc>
                                 <ShortButton marginleft = "75%" onClick = {() => r.push("/tutorial/questions")}> Next </ShortButton>      
-
                         </Wrapper>
                 </Box>
         )

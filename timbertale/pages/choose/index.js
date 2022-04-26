@@ -7,7 +7,7 @@ import Image from 'next/image';
 import OldGrowth  from '../../public/OldGrowth.jpg'
 import Sumatran  from '../../public/Sumatran.jpg'
 import Amazon from '../../public/Amazon.jpg'
-import { SettingsBackdrop, SetButton, SettingsModal } from '../../comps/settings';
+import { SettingsBackdrop, SetButton, SettingsModal } from '../../comps/Settings';
 import 'swiper/css';
 import { useState } from 'react';
  
@@ -17,7 +17,10 @@ export default () => {
 
   function settingsHandler(){
     setSettingsOpen(true);
-}
+  }
+  function closeSettingsHandler(){
+    setSettingsOpen(false);
+  }
 
  return (
    <FSBackground backgroundcolor = "#999529">
@@ -29,8 +32,8 @@ export default () => {
       <Heading color="#FFFFFF">Select Your Forest</Heading>
       <ChooseInfo>Forests are important and grow in many places around the world. They are an ecosystem which includes many plants and animals.</ChooseInfo>
     </Wrapper>
-    {settingsOpen && <SettingsModal/>}
-    {settingsOpen && <SettingsBackdrop/>}
+    {settingsOpen && <SettingsModal onClick= {closeSettingsHandler}/>}
+    {settingsOpen && <SettingsBackdrop onClick = {closeSettingsHandler}/>}
    <Swiper
      spaceBetween={10}
      slidesPerView={'auto'}

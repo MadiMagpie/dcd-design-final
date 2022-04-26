@@ -1,4 +1,3 @@
-import { Component } from 'react';
 import styled from 'styled-components';
 import "typeface-poppins";
 import { useRouter} from 'next/router'
@@ -6,8 +5,8 @@ import { useRouter} from 'next/router'
 
 export const LongButton = styled.button `
 cursor: pointer;
-background: ${props => props.white ? "#FFF8EC" : "#EB6A00"};
-color: ${props => props.white ?  "#999529" : "#FFF8EC"};
+background: ${props => props.green ? "#999529" : "#EB6A00"};
+color: ${props => props.green ?  "#FFF8EC" : "#FFF8EC"};
 display: flex; 
 font-family: 'Poppins', sans-serif;
 font-weight: 500;

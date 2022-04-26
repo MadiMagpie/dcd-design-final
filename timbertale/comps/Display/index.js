@@ -88,6 +88,6 @@ width: 30vw;
 `;
 
 export const SetLine = styled.hr`
-border-top: 1px solid #7D4D2B;
-width: 65%;
+border-top: 0.5px solid #7D4D2B;
+width: 85%;
 `;

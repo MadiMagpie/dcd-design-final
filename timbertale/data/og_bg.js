@@ -28,6 +28,9 @@ export const ogbg = [
 },
 {
         bg: "/OldGrowth_Stage10.svg",
-},
+},{
+        bg: "/OldGrowth_CompleteFinalGrowCongrats-04.svg"
+}
+
 
 ];

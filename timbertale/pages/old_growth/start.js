@@ -6,7 +6,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { lives } from "../../data/lives";
 import { motion } from "framer-motion";
-import { SettingsModal, SetButton, SettingsBackdrop } from "../../comps/settings";
+import { SettingsModal, SetButton, SettingsBackdrop } from "../../comps/Settings";
 
 
 const QuestionBox = styled.div`
@@ -72,10 +72,14 @@ export default function OldGrowthStart() {
         function closeSettingsHandler(){
                 setSettingsOpen(false);
                 }
+        
+                //useEffect to re-render questionbox?
 
         const handleChoiceClick = (isCorrect) =>{
                 const nextBackground = currentBackground +1;
-                const minusLife = currentLives +1;
+                const minusLife = currentLives + 1;
+                const nextQuestion = currentQuestion + 1;
+
                 if (isCorrect === true){
                         setCurrentBackground(nextBackground);
                 } else{
@@ -86,13 +90,11 @@ export default function OldGrowthStart() {
                                r.push("endLose");
                         } 
                 }
-
-                const nextQuestion = currentQuestion + 1;
-                //make sure you dont go out of array scope
+                //while there is still questions, give next q
                 if(nextQuestion < qs.length){
                       setCurrentQuestion(nextQuestion);  
                 } else {
-                        //do something when question array does go out of scope;
+                        //if out of questions, tree grows to win
                         r.push("endWin");
                 }
         }
@@ -106,7 +108,7 @@ export default function OldGrowthStart() {
                 <img className = "lumberjack" src = "/lumberjack1.svg"/>
                 <img className="startTree" src = {ogbg[currentBackground].bg}/>
         </div>
-        {settingsOpen && <SettingsModal/>}
+        {settingsOpen && <SettingsModal onClick= {closeSettingsHandler}/>}
         {settingsOpen && <SettingsBackdrop onClick = {closeSettingsHandler}/>}
         
         <QuestionBox
