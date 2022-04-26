@@ -10,7 +10,7 @@ export function WelcomeTutorial(){
                 <Box as={motion.div} 
                 initial ={{y:-100}} 
                 animate = {{y:30}} 
-                transiton={{type: "spring", stiffness: 700, damping: 60}}> 
+                transiton={{type: "spring", stiffness: 700, damping: 60}} width = "75%"> 
                         <Wrapper margintop = "4em"> 
                         <SkipButton></SkipButton>
                                 <h1>Welcome to TimberTale's tutorial!</h1>

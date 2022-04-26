@@ -13,7 +13,11 @@ export default function ChooseForestTutorial(){
       
         function settingsHandler(){
           setSettingsOpen(true);
-      }
+        }
+        
+        function closeSettingsHandler(){
+        setSettingsOpen(false);
+        }
 
         const r = useRouter();
         return (
@@ -27,8 +31,8 @@ export default function ChooseForestTutorial(){
                         transiton={{type: "spring", stiffness: 700, damping: 60}}
                         onClick={()=> r.push("/tutorial/start")}
                         >Start</LongButton>
-                        {settingsOpen && <SettingsModal/>}
-                        {settingsOpen && <SettingsBackdrop/>}
+                        {settingsOpen && <SettingsModal onClick= {closeSettingsHandler}/>}
+                        {settingsOpen && <SettingsBackdrop onClick = {closeSettingsHandler}/>}
                 </FSBackground>
         )
 }

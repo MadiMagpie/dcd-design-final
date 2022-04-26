@@ -13,15 +13,19 @@ export default function FinishedTutorial(){
       
         function settingsHandler(){
           setSettingsOpen(true);
-      }
+        }
+
+        function closeSettingsHandler(){
+                setSettingsOpen(false);
+        }
         const r = useRouter();
 
         return (
                 <FSBackground>
                         <SetButton onClick = {settingsHandler}> <img src='/settings.svg'/></SetButton>
                         <FinishTutorial></FinishTutorial>
-                        {settingsOpen && <SettingsModal/>}
-        {settingsOpen && <SettingsBackdrop/>}
+                        {settingsOpen && <SettingsModal onClick= {closeSettingsHandler}/>}
+                        {settingsOpen && <SettingsBackdrop onClick = {closeSettingsHandler}/>}
                 </FSBackground>
         )
 }

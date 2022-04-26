@@ -16,6 +16,9 @@ const r = useRouter();
   function settingsHandler(){
     setSettingsOpen(true);
 }
+function closeSettingsHandler(){
+  setSettingsOpen(false);
+}
 
 return (
     <ImgBackground background = "/oldgrowth.svg">
@@ -29,8 +32,8 @@ return (
                       {qs[2].choices.map((pick)=> <Answer onClick={()=> r.push("/tutorial/wrong")}>{pick.choice}</Answer>)}
               </AnswerBox>
       </QuestionBox>
-      {settingsOpen && <SettingsModal/>}
-        {settingsOpen && <SettingsBackdrop/>}
+      {settingsOpen && <SettingsModal onClick= {closeSettingsHandler}/>}
+        {settingsOpen && <SettingsBackdrop onClick = {closeSettingsHandler}/>}
      
     </ImgBackground>
   )
