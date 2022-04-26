@@ -69,6 +69,9 @@ export default function OldGrowthStart() {
         function settingsHandler(){
                 setSettingsOpen(true);
         }
+        function closeSettingsHandler(){
+                setSettingsOpen(false);
+                }
 
         const handleChoiceClick = (isCorrect) =>{
                 const nextBackground = currentBackground +1;
@@ -104,7 +107,7 @@ export default function OldGrowthStart() {
                 <img className="startTree" src = {ogbg[currentBackground].bg}/>
         </div>
         {settingsOpen && <SettingsModal/>}
-        {settingsOpen && <SettingsBackdrop/>}
+        {settingsOpen && <SettingsBackdrop onClick = {closeSettingsHandler}/>}
         
         <QuestionBox
         as={motion.div} 

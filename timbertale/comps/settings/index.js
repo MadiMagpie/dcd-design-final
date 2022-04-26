@@ -1,32 +1,32 @@
 import styled from "styled-components";
 import { ShortButton } from "../Button";
-import { FSBackground, SetLine } from "../Display";
+import { FSBackground, SetLine, Wrapper } from "../Display";
 import Image from "next/image";
 import Slider from "../../public/slider.svg"
 import { useRouter } from "next/router";
+import { useState } from "react";
+
 
 export const BigBox = styled.div`
 justify-content: center;
 background: #FFF8EC;
 border-radius:25px; 
-max-width: 500px;
+max-width: 75%;
 min-width: 150px;
 max-height: 500px;
-z-index: 2;
-`;
-
-export const Settings = styled.div`
+position: fixed;
+z-index: 4;
 `;
 
 export const SetText = styled.div`
 display: flex;
 flex-direction: column;
-
+padding: 15% 5% 0% 5%;
 `;
 
 export const ButBox = styled.div`
 display: flex;
-padding: 15px
+flex-direction: row;
 `;
 
 export const SetBox = styled.h3`
@@ -44,6 +44,12 @@ display: flex;
 justify-content: flex-end;
 `;
 
+const SettingItemWrapper = styled.div`
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+`
+
 export const SetButton = styled.button`
 cursor: pointer;
 color: #FFF8EC;
@@ -54,46 +60,64 @@ top: 4%;
 right: 5%;
 border: none;
 background-color: transparent;
-z-index: 2;
+z-index: 4;
 `;
 
-export function SettingsModal () {
+export const SettingsBackdrop = styled.div`
+background-color: #653E23C9;
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+
+`;
+
+export function SettingsModal(props) {
     const r = useRouter();
+    const [settingsOpen, setSettingsOpen] = useState(true);
+
+    function settingsHandler(){
+        setSettingsOpen(true);
+    }
+    function closeSettingsHandler(){
+        setSettingsOpen(false);
+        }
+    
     return (
-       <BigBox>
-        <Settings>
-            <SetText>
-            <SetBox>
-                Music
-                <BSwitch><Image src={Slider}
-                width={50}
-                heigh={50}/></BSwitch>
-            </SetBox>    
-            <SetLine/>
-            <SetBox>
-                Sound Effects
-                <BSwitch><Image src={Slider}
-                width={50}
-                heigh={50}/></BSwitch>
-            </SetBox>
-            <SetLine/>
-            <SetBox> 
-                Text Size 
-                <BSwitch><Image src={Slider}
-                width={50}
-                heigh={50}/></BSwitch> 
-            </SetBox>
-                  <SetLine/>
-            <SetBox> Dark Mode <BSwitch><Image src={Slider}
-                width={50}
-                heigh={50}/></BSwitch> </SetBox>
-            </SetText>
-            <SetLine/>
-        </Settings>
-        <ButBox>
-        <ShortButton onClick = {()=>r.push("/")}>Home</ShortButton>
-        <ShortButton>Continue</ShortButton>
-        </ButBox>
+        <BigBox>
+            <SettingItemWrapper>
+                <SetText>
+                    <SetBox>
+                        Music
+                        <BSwitch><Image src={Slider}
+                        width={50}
+                        heigh={50}/></BSwitch>
+                    </SetBox>    
+                    <SetLine/>
+                    <SetBox>
+                        Sound Effects
+                        <BSwitch><Image src={Slider}
+                        width={50}
+                        heigh={50}/></BSwitch>
+                    </SetBox>
+                    <SetLine/>
+                    <SetBox> 
+                        Text Size 
+                        <BSwitch><Image src={Slider}
+                        width={50}
+                        heigh={50}/></BSwitch> 
+                    </SetBox>
+                        <SetLine/>
+                    <SetBox> Dark Mode <BSwitch><Image src={Slider}
+                        width={50}
+                        heigh={50}/></BSwitch> </SetBox>
+                        <SetLine/>
+                </SetText>
+                <ButBox>
+                    <ShortButton marginleft = "20" onClick = {()=>r.push("/")}>Home</ShortButton>
+                    <ShortButton marginleft = "20" onClick = {closeSettingsHandler}>Continue</ShortButton>
+                </ButBox>
+            </SettingItemWrapper>
         </BigBox>
     )
 }
@@ -116,6 +140,7 @@ export function SettingsModal () {
 //             </SetButton>
 //     )
 // }
-export function SettingsBackdrop(){
-    <FSBackground backgroundcolor = "#7D4D2B"></FSBackground>
-}
+// export function SettingsBackdrop(){
+//     // <FSBackground backgroundcolor = "#7D4D2B" zindex = "3"></FSBackground>
+
+// }
