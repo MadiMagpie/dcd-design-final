@@ -21,7 +21,7 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import OldGrowth  from '../../public/OldGrowth.jpg'
 import Sumatran  from '../../public/Sumatran.jpg'
-import Amazon from '../../public/amazon.jpg'
+import Amazon from '../../public/Amazon.jpg'
 
 import 'swiper/css';
  

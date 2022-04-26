@@ -58,6 +58,7 @@ export const Desc = styled.p`
 color: ${props => props.color || "#7D4D2B"};
 font-size: 1rem;
 font-weight: ${props => props.weight|| "400"};
+text-align: ${props => props.textalign || "center"}
 `;
 
 export const LearnBackground = styled.div` 

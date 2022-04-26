@@ -72,6 +72,40 @@ background-color: #653E23C9;
 
 `;
 
+export const Selector = styled.div`
+height: 30px;
+width: 50px;
+background: #FFFFFF;
+border-radius: 6px;
+display: flex;
+justify-content: ${props => props.side || "flex-start"};
+align-items: center;
+`;
+
+export const SelDot = styled.div`
+height: 21px;
+width: 21px;
+background: #EB6A00;
+border-radius: 10px;
+`;
+
+const TextSizeWrapper = styled.div`
+height: 30px;
+background: ${props => props.background || "#FFFFFF"};
+color: ${props => props.color};
+font-size: ${props => props.size};
+display: flex;
+justify-content: center;
+margin-right: 5px;
+padding: 0px 3px;
+border-radius: 5px;
+align-items: center;
+`;
+
+export function SettingsSlide (props) {
+    
+}
+
 export function SettingsModal(props) {
     const r = useRouter();
     const [settingsOpen, setSettingsOpen] = useState(true);
@@ -89,28 +123,35 @@ export function SettingsModal(props) {
                 <SetText>
                     <SetBox>
                         Music
-                        <BSwitch><Image src={Slider}
-                        width={50}
-                        heigh={50}/></BSwitch>
+                        <Selector>
+                            <SelDot></SelDot>
+                        </Selector>
                     </SetBox>    
                     <SetLine/>
                     <SetBox>
                         Sound Effects
-                        <BSwitch><Image src={Slider}
-                        width={50}
-                        heigh={50}/></BSwitch>
+                        <Selector>
+                            <SelDot></SelDot>
+                        </Selector>
                     </SetBox>
                     <SetLine/>
                     <SetBox> 
                         Text Size 
-                        <BSwitch><Image src={Slider}
-                        width={50}
-                        heigh={50}/></BSwitch> 
+                        <div style={{display:"flex"}}>
+                        <TextSizeWrapper background="#7D4D2B" color="#FFFFFF" size="0.8em">
+                            aA
+                        </TextSizeWrapper>
+                        <TextSizeWrapper>
+                            aA
+                        </TextSizeWrapper>
+                        </div>
                     </SetBox>
                         <SetLine/>
-                    <SetBox> Dark Mode <BSwitch><Image src={Slider}
-                        width={50}
-                        heigh={50}/></BSwitch> </SetBox>
+                    <SetBox> Dark Mode 
+                        <Selector>
+                            <SelDot></SelDot>
+                        </Selector>
+                        </SetBox>
                         <SetLine/>
                 </SetText>
                 <ButBox>
