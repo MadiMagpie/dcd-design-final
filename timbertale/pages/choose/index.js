@@ -24,10 +24,8 @@ export default () => {
 
  return (
    <FSBackground backgroundcolor = "#999529">
-    <RowWrapper marginbottom = "2em" margintop = "0">
       <BackButton onClick={()=>r.back}></BackButton>
       <SetButton onClick = {settingsHandler}><img src='/settingswhite.svg'/></SetButton>
-    </RowWrapper>
     <Wrapper>
       <Heading color="#FFFFFF">Select Your Forest</Heading>
       <ChooseInfo>Forests are important and grow in many places around the world. They are an ecosystem which includes many plants and animals.</ChooseInfo>
@@ -39,6 +37,7 @@ export default () => {
      slidesPerView={'auto'}
      centeredSlides={true}
      loop={true}
+     grabCursor={true}
      onSlideChange={() => console.log('slide change')}
      onSwiper={(swiper) => console.log(swiper)}
  >  

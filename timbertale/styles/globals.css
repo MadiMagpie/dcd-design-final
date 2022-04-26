@@ -80,3 +80,16 @@ h3{
   left: 54%;
   width: 10%;
 }
+
+.swiper-slide > img {
+  border-radius: 10px;
+}
+
+.swiper-wrapper {
+  align-items: center !important;
+}
+
+.swiper-slide-active {
+  width: 40%;
+  border-radius: 20px;
+}
