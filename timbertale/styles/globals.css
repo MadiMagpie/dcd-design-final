@@ -74,3 +74,9 @@ h3{
   visibility: hidden;
 }
 
+.startChop{
+  position: fixed; 
+  bottom: 54px;
+  left: 54%;
+  width: 10%;
+}

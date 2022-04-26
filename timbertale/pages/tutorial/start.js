@@ -11,15 +11,19 @@ export default function StartSecondTutorial(){
       
         function settingsHandler(){
           setSettingsOpen(true);
-      }
+        }
+
+      function closeSettingsHandler(){
+        setSettingsOpen(false);
+        }
         const r = useRouter();
         return (
                 <ImgBackground background = "/oldgrowth.svg">
                         <Base></Base>
                         <SetButton onClick = {settingsHandler}> <img src='/settings.svg'/></SetButton>
                         <SecondTutorial></SecondTutorial>
-                        {settingsOpen && <SettingsModal/>}
-                        {settingsOpen && <SettingsBackdrop/>}
+                        {settingsOpen && <SettingsModal onClick= {closeSettingsHandler}/>}
+        {settingsOpen && <SettingsBackdrop onClick = {closeSettingsHandler}/>}
                 </ImgBackground>
         )
 }

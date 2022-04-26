@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { qs } from "../../data/old_growth";
 import { ogbg } from "../../data/og_bg";
+import { chopstage } from "../../data/chop";
 import { ImgBackground, SmallIcon } from "../../comps/Display";
 import { useState } from "react";
 import styled from "styled-components";
@@ -65,6 +66,8 @@ export default function OldGrowthStart() {
         const [currentBackground, setCurrentBackground] = useState(0);
         const [currentLives, setCurrentLives] = useState(0);
         const [settingsOpen, setSettingsOpen] = useState(false);
+        const [currentChopStage, setCurrentChopStage] = useState(0);
+
         const r = useRouter();
 
         function settingsHandler(){
@@ -78,21 +81,22 @@ export default function OldGrowthStart() {
                 setShowCorrect(true);
                 setTimeout(() => {
                         setShowCorrect(false);
-                }, 2000)
+                }, 2000);
         }
         
         function showIncorrectHandler(){
                 setShowIncorrect(true);
                 setTimeout(() => {
                         setShowIncorrect(false);
-                }, 2000)
+                }, 2000);
         }
                 //useEffect to re-render questionbox?
 
         const handleChoiceClick = (isCorrect) =>{
-                const nextBackground = currentBackground +1;
+                const nextBackground = currentBackground + 1;
                 const minusLife = currentLives + 1;
                 const nextQuestion = currentQuestion + 1;
+                const nextChopStage = currentChopStage + 1;
 
                 if (isCorrect === true){
                         showCorrectHandler();
@@ -102,6 +106,7 @@ export default function OldGrowthStart() {
                         if(minusLife < lives.length){
                                 showIncorrectHandler();
                                 setCurrentLives(minusLife); 
+                                setCurrentChopStage(nextChopStage);
                                  
                         } else {
                                 //if lives run out, chop down tree 
@@ -112,7 +117,7 @@ export default function OldGrowthStart() {
                 if(nextQuestion < qs.length){
                         setTimeout(() => {
                                 setCurrentQuestion(nextQuestion);  
-                        }, 2000)
+                        }, 2000);
                       
                 } else {
                         //if out of questions, tree grows to win
@@ -128,6 +133,7 @@ export default function OldGrowthStart() {
                 <SetButton onClick = {settingsHandler}> <img src='/settings.svg'/></SetButton>
                 <img className = "lumberjack" src = "/lumberjack1.svg"/>
                 <img className="startTree" src = {ogbg[currentBackground].bg}/>
+                <img className="startChop" src = {chopstage[currentChopStage].chop}/>
         </div>
         {settingsOpen && <SettingsModal onClick= {closeSettingsHandler}/>}
         {settingsOpen && <SettingsBackdrop onClick = {closeSettingsHandler}/>}

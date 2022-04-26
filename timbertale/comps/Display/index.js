@@ -37,7 +37,7 @@ background: #FFFAF1;
 display: flex;
 border-radius:25px; 
 max-width: 750px;
-width: ${(props) => props.width || "55%"};
+width: ${(props) => props.width || "65%"};
 flex-direction: column;
 align-items: center;
 margin: 5%, 10%;

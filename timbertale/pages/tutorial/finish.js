@@ -13,14 +13,19 @@ export default function StartThirdTutorial(){
         function settingsHandler(){
           setSettingsOpen(true);
       }
+      
+      function closeSettingsHandler(){
+        setSettingsOpen(false);
+        }
+
         const r = useRouter();
         return (
                 <ImgBackground background = "/oldgrowth.svg">
                     <Base></Base>
                     <SetButton onClick = {settingsHandler}> <img src='/settings.svg'/></SetButton>
                         <GoodLuck></GoodLuck>
-                        {settingsOpen && <SettingsModal/>}
-        {settingsOpen && <SettingsBackdrop/>}
+                        {settingsOpen && <SettingsModal onClick= {closeSettingsHandler}/>}
+        {settingsOpen && <SettingsBackdrop onClick = {closeSettingsHandler}/>}
                 </ImgBackground>
         )
 }
