@@ -4,15 +4,24 @@ import { LongButton, BackButton, SettingsLight } from "../../comps/Button";
 import OGLearn1 from "../../public/OGLearn1.png"
 import OGLearn2 from "../../public/OGLearn2.png"
 import OGLearn3 from "../../public/OGLearn3.png"
-
+import { useState } from "react";
+import { useRouter } from "next/router";
+import { SettingsModal, SetButton, SettingsBackdrop } from "../../comps/settings";
 
 export default function LearnOld() {
+    const [currentBackground, setCurrentBackground] = useState(0);
+    const [settingsOpen, setSettingsOpen] = useState(false);
+    const r = useRouter();
+
+    function settingsHandler(){
+            setSettingsOpen(true);
+    }
 
     return (
         <LearnBackground>
             
             <BackButton></BackButton>
-            <SettingsLight></SettingsLight>
+            <SetButton onClick = {settingsHandler}> <img src='/settingswhite.svg'/></SetButton>
             <Wrapper margintop="5em"> <Heading color="#FFFFFF"> British Columbia’s Old Growth Forest  </Heading></Wrapper>
             <Wrapper><Desc color="#FFFFFF">Old-growth forests have great ecological and cultural values, they provide specialized habitats not found in younger forests. In BC much of the original old growth has been logged,cleared, burnt by wildfires, attacked by bark beetles, or submerged in hydroelectric reservoirs.</Desc></Wrapper>
             <Wrapper><Image src={OGLearn1}
@@ -33,7 +42,8 @@ export default function LearnOld() {
             Old-growth forests also have deep cultural and spiritual significance for humans, and provide a vital cultural resource for First Nations.
         </Desc></Wrapper>
         <Wrapper> <LongButton>Play as this forest</LongButton></Wrapper>
-
+        {settingsOpen && <SettingsModal/>}
+        {settingsOpen && <SettingsBackdrop/>}
         </LearnBackground>
     )
 }

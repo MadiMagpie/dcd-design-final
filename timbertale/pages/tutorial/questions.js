@@ -6,22 +6,34 @@ import { WelcomeOG } from "../../comps/WelcomeCard";
 import Base from "../../comps/Base";
 import { SettingsDark } from "../../comps/Button";
 import { TutArrow, Tut1q } from "../../comps/Tutorial/arrows";
+import { SetButton, SettingsModal, SettingsBackdrop } from "../../comps/settings";
+import { useState } from "react";
+
 
 export default function TutQuestion (){
+  const [settingsOpen, setSettingsOpen] = useState(false);
+const r = useRouter();
+
+  function settingsHandler(){
+    setSettingsOpen(true);
+}
 
 return (
     <ImgBackground background = "/oldgrowth.svg">
-        <SettingsDark></SettingsDark>
-      <Base></Base>
-      <QuestionBox>
+        <SetButton onClick = {settingsHandler}> <img src='/settings.svg'/></SetButton>
+      
+      <QuestionBox  style={{zIndex:"1"}}>
               <Question>
               {qs[0].title}
               </Question>
               <AnswerBox>
-                      {qs[0].choices.map((pick)=> <Answer>{pick.choice}</Answer>)}
+                      {qs[0].choices.map((pick)=> <Answer onClick = {() => r.push("/tutorial/welldone")}>{pick.choice}</Answer>)}
               </AnswerBox>
       </QuestionBox>
+        <Base></Base>
     <TutArrow>  <img src="/greenarrow.svg"/></TutArrow><Tut1q> <Desc weight="800">Lets try picking this one</Desc></Tut1q>
+    {settingsOpen && <SettingsModal/>}
+        {settingsOpen && <SettingsBackdrop/>}
      
     </ImgBackground>
   )
