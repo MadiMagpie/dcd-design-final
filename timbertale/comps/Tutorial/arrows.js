@@ -23,7 +23,7 @@ transform: rotate(190deg);
 
 export const Tut2Q = styled.div`
 position: absolute;
-    top: 36vh;
+    top: 34vh;
     right:10vw;
     z-index: 2;
 
