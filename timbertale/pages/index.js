@@ -6,7 +6,7 @@ import styles from '../styles/Home.module.css'
 import { useRouter } from 'next/router'
 import { LongButton, ForestButton } from '../comps/Button';
 import { FSBackground } from "../comps/Display";
-import { SettingsBackdrop } from "../comps/Settings";
+import { SettingsBackdrop } from "../comps/settings";
 
 export default function Home() {
   const r = useRouter();
