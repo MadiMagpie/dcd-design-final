@@ -4,9 +4,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { FSBackground, Heading, Wrapper, RowWrapper} from "../../comps/Display";
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import OldGrowth  from '../../public/OldGrowth.jpg'
-import Sumatran  from '../../public/Sumatran.jpg'
-import Amazon from '../../public/Amazon.jpg'
+import OldGrowth  from '../../public/Cards_OldGrowth-01.jpg'
+import Sumatran  from '../../public/Cards_Sumatran-01.jpg'
+import Amazon from '../../public/Cards_Amazon-01.jpg'
 import { SettingsBackdrop, SetButton, SettingsModal } from '../../comps/Settings';
 import 'swiper/css';
 import { useState } from 'react';
