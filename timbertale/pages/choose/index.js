@@ -56,7 +56,7 @@ export default () => {
        width={300}
        height={600}
       />
-      <ShortButton marginleft={"10px"} onClick={()=>r.push("/old_growth")}>Start</ShortButton>
+      <ShortButton marginleft={"10px"} onClick={()=>r.push("/old_growth/howto")}>Start</ShortButton>
      </SwiperSlide>
      <SwiperSlide>
        <Image src={Amazon}
@@ -64,7 +64,7 @@ export default () => {
        width={300}
        height={600}
       />
-      <ShortButton marginleft={"10px"} onClick={()=>r.push("/Amazon")}>Start</ShortButton>
+      <ShortButton marginleft={"10px"} onClick={()=>r.push("/Amazon/howto")}>Start</ShortButton>
      </SwiperSlide>
      <SwiperSlide>
       <Image src={Sumatran} 
@@ -72,7 +72,7 @@ export default () => {
        width={300}
        height={600}
         />
-        <ShortButton marginleft={"10px"} onClick={()=>r.push("/Sumatran")}>Start</ShortButton>
+        <ShortButton marginleft={"10px"} onClick={()=>r.push("/Sumatran/howto")}>Start</ShortButton>
      </SwiperSlide>
    </Swiper>
   
