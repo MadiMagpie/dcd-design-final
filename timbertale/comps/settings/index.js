@@ -4,6 +4,8 @@ import { FSBackground, SetLine, Wrapper } from "../Display";
 import Image from "next/image";
 import Slider from "../../public/slider.svg"
 import { useRouter } from "next/router";
+import { useState, useEffect, useDebugValue } from "react";
+import useSound from 'use-sound';
 
 
 export const BigBox = styled.div`
@@ -74,18 +76,21 @@ background-color: #653E23C9;
 export const Selector = styled.div`
 height: 30px;
 width: 50px;
-background: #FFFFFF;
+background: ${props => props.bg || "#FFFFFF"};
 border-radius: 6px;
 display: flex;
-justify-content: ${props => props.side || "flex-start"};
+justify-content: ${props => props.side || "flex-end"};
 align-items: center;
+transition: background 0.3s, justify-content 0.8s;
 `;
 
 export const SelDot = styled.div`
 height: 21px;
 width: 21px;
-background: #EB6A00;
+background: ${props => props.dc || "#EB6A00"};
 border-radius: 10px;
+margin: 0px 5px 0px 5px;
+transtition: color 0.3s;
 `;
 
 const TextSizeWrapper = styled.div`
@@ -101,28 +106,75 @@ border-radius: 5px;
 align-items: center;
 `;
 
-export function SettingsSlide (props) {
-    
+const switch_data = {
+    active:{
+        side:"flex-start",
+        color: "#FFFFFF",
+        dot: "#EB6A00"
+    }, 
+    inactive:{
+        side:"flex-end",
+        color: "#7D4D2B",
+        dot: "#FFFFFF"
+    }
 }
 
-export function SettingsModal(props) {
+export function Switch({
+  active = false,
+  onSwitch=()=>{}  
+}){
+
+    const [a_state, setAState] = useState("inactive");
+
+    useEffect(()=>{
+        if(active){
+            setAState("active");
+        } else {
+            setAState("inactive");
+        }
+    }, [active])
+
+    useEffect(()=>{
+        if(a_state === "active"){
+            onSwitch(true);
+        } else {
+            onSwitch(false);
+        }
+    }, [a_state])
+
+    return <Selector side={switch_data[a_state].side}
+    bg={switch_data[a_state].color}
+    onClick={
+        ()=>setAState(a_state === "active" ? "inactive" : "active")
+    }>
+        <SelDot dc={switch_data[a_state].dot}>
+        </SelDot>
+    </Selector>
+}
+
+    export function SettingsModal(props){
     const r = useRouter();
-    return (
-        <BigBox>
+const [e_state, setEState] = useState(false);
+
+    return        <BigBox>
             <SettingItemWrapper>
                 <SetText>
                     <SetBox>
                         Music
-                        <Selector>
-                            <SelDot></SelDot>
-                        </Selector>
+                        <Switch
+                        onSwitch={
+                            (val)=>setEState(val)
+                        }
+                        ></Switch>
                     </SetBox>    
                     <SetLine/>
                     <SetBox>
                         Sound Effects
-                        <Selector>
-                            <SelDot></SelDot>
-                        </Selector>
+                        <Switch
+                        onSwitch={
+                            (val)=>setEState(val)
+                        }
+                        ></Switch>
                     </SetBox>
                     <SetLine/>
                     <SetBox> 
@@ -138,9 +190,11 @@ export function SettingsModal(props) {
                     </SetBox>
                         <SetLine/>
                     <SetBox> Dark Mode 
-                        <Selector>
-                            <SelDot></SelDot>
-                        </Selector>
+                    <Switch
+                        onSwitch={
+                            (val)=>setEState(val)
+                        }
+                        ></Switch>
                         </SetBox>
                         <SetLine/>
                 </SetText>
@@ -150,5 +204,4 @@ export function SettingsModal(props) {
                 </ButBox>
             </SettingItemWrapper>
         </BigBox>
-    )
 }
