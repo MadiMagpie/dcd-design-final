@@ -5,6 +5,7 @@ import { LongButton, SettingsDark} from '../../comps/Button';
 import Base from '../../comps/Base';
 import { SetButton, SettingsModal, SettingsBackdrop } from "../../comps/settings";
 import { useState } from "react";
+import { LifeBox } from '../../comps/Lives';
 
 export default function StartThirdTutorial(){
         const [settingsOpen, setSettingsOpen] = useState(false);
@@ -18,7 +19,15 @@ export default function StartThirdTutorial(){
         const r = useRouter();
         return (
                 <ImgBackground background = "/oldgrowth.svg">
-                        <Base></Base>
+                <div className = "base">
+                <LifeBox>
+                <img className = "life" src = "/axe.svg"></img>
+                <img className = "life" src = "/axe.svg"></img>
+                <img className = "life" src = "/axe.svg"></img>
+                </LifeBox>
+                <img className = "lumberjack" src = "/lumberjack1.svg"/>
+                <img className="startTree" src = "/OldGrowthStages_Growing/OldGrowth_GrowStage1.svg"/> 
+        </div>
                         <SetButton onClick = {settingsHandler}> <img src='/settings.svg'/></SetButton>
                         <ThirdTutorial></ThirdTutorial>
                         {settingsOpen && <SettingsModal onClick= {closeSettingsHandler}/>}

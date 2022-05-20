@@ -8,7 +8,7 @@ import { SettingsDark } from "../../comps/Button";
 import { TutArrow, Tut1q } from "../../comps/Tutorial/arrows";
 import { SetButton, SettingsModal, SettingsBackdrop } from "../../comps/settings";
 import { useState } from "react";
-
+import { LifeBox } from "../../comps/Lives";
 
 export default function TutQuestion (){
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -33,7 +33,15 @@ return (
                 {qs[0].choices.map((pick)=> <Answer onClick = {() => r.push("/tutorial/welldone")}>{pick.choice}</Answer>)}
               </AnswerBox>
       </QuestionBox>
-        <Base></Base>
+      <div className = "base">
+                <LifeBox>
+                <img className = "life" src = "/axe.svg"></img>
+                <img className = "life" src = "/axe.svg"></img>
+                <img className = "life" src = "/axe.svg"></img>
+                </LifeBox>
+                <img className = "lumberjack" src = "/lumberjack1.svg"/>
+                <img className="startTree" src = "/OldGrowthStages_Growing/OldGrowth_GrowStage1.svg"/> 
+        </div>
     <TutArrow>  <img src="/greenarrow.svg"/></TutArrow><Tut1q> <Desc weight="800">Lets try picking this one</Desc></Tut1q>
     {settingsOpen && <SettingsModal onClick= {closeSettingsHandler}/>}
         {settingsOpen && <SettingsBackdrop onClick = {closeSettingsHandler}/>}

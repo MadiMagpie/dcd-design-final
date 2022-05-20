@@ -8,7 +8,7 @@ import { SettingsDark } from "../../comps/Button";
 import { TutArrow2, Tut2Q } from "../../comps/Tutorial/arrows";
 import { SetButton, SettingsModal, SettingsBackdrop } from "../../comps/settings";
 import { useState } from "react";
-
+import LifeHolder from "../../comps/Lives";
 
 export default function TutQuestion (){
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -23,7 +23,12 @@ function closeSettingsHandler(){
 return (
     <ImgBackground background = "/oldgrowth.svg">
         <SetButton onClick = {settingsHandler}> <img src='/settings.svg'/></SetButton>
-      <Base></Base>  <Tut2Q> <Desc weight="800">Now lets try this one</Desc></Tut2Q> <TutArrow2><img src="/greenarrow.svg"/></TutArrow2>
+        <div className = "base">
+                                <LifeHolder></LifeHolder>
+                                <img className = "lumberjack" src = "/lumberjack1.svg"/>
+                                <img className="startTree" src = "/OldGrowthStages_Growing/OldGrowth_GrowStage2.svg"/> 
+                        </div>
+         <Tut2Q> <Desc weight="800">Now lets try this one</Desc></Tut2Q> <TutArrow2><img src="/greenarrow.svg"/></TutArrow2>
       <QuestionBox style={{zIndex:"1"}}>
               <Question>
               {qs[1].title}

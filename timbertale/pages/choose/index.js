@@ -36,7 +36,7 @@ export default () => {
      navigation={true}
      loop={true}
      pagination={{dynamicBullets:true,}}
-     modules={[Pagination, Navigation]}
+     modules={ Navigation}
      onSlideChange={() => console.log('slide change')}
      onSwiper={(swiper) => console.log(swiper)}
      className="mySwiper"

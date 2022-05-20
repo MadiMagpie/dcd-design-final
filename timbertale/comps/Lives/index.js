@@ -1,7 +1,7 @@
 import { Box } from "../Display";
 import styled from 'styled-components';
 
-const LifeBox = styled.div`
+export const LifeBox = styled.div`
 background-color: #FFF8EC;
 padding: 10px;
 display: flex;

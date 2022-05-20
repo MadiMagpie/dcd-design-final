@@ -22,7 +22,7 @@ export default function StartThirdTutorial(){
                         <div className = "base">
                                 <LifeHolder></LifeHolder>
                                 <img className = "lumberjack" src = "/lumberjack1.svg"/>
-                                <img className="startTree" src = "/OldGrowth_Stage2.svg"/> 
+                                <img className="startTree" src = "/OldGrowthStages_Growing/OldGrowth_GrowStage2.svg"/> 
                         </div>
                     <SetButton onClick = {settingsHandler}> <img src='/settings.svg'/></SetButton>
                         <WellDone></WellDone>

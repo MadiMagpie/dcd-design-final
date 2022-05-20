@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function youWon(){
         const r = useRouter();
         return(
-                <ImgBackground background = "/OldGrowth_CompleteFinalGrowCongrats-04.svg">
+                <ImgBackground background = "/Win_OldGrowth-01.svg">
                         <Box as={motion.div} 
                 initial ={{y:-300}} 
                 animate = {{y:-50}} 
