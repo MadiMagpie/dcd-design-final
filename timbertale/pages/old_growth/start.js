@@ -6,11 +6,11 @@ import { ImgBackground, SmallIcon } from "../../comps/Display";
 import { useState } from "react";
 import styled from "styled-components";
 import { lives } from "../../data/lives";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { SettingsModal, SetButton, SettingsBackdrop } from "../../comps/Settings";
 
 
-const QuestionBox = styled.div`
+const QuestionBox = styled(motion.div)`
 background: #FFFAF199;
 display: flex;
 border-radius: 25px; 
@@ -47,7 +47,7 @@ font-size: 1.25em;
 
 const Answer = styled.button`
 font-family: 'Poppins', sans-serif;
-background: #EB6A00;
+background:  ${props => props.bg ||"#EB6A00"};
 margin: 15px 10px;
 padding: 15px 10px;
 border-radius: 8px;
@@ -60,7 +60,6 @@ border-style: none;
 `;
 
 export default function OldGrowthStart() {
-        const [currentQuestion, setCurrentQuestion] = useState(0);
         const [showCorrect, setShowCorrect] = useState(false);
         const [showIncorrect, setShowIncorrect] = useState(false);
         const [currentBackground, setCurrentBackground] = useState(0);
@@ -69,6 +68,10 @@ export default function OldGrowthStart() {
         const [currentChopStage, setCurrentChopStage] = useState(0);
 
         const r = useRouter();
+        var {qnum} = r.query;
+        if(qnum === undefined){
+                qnum = 0;
+        }
 
         function settingsHandler(){
                 setSettingsOpen(true);
@@ -90,18 +93,18 @@ export default function OldGrowthStart() {
                         setShowIncorrect(false);
                 }, 2000);
         }
-                //useEffect to re-render questionbox?
 
-        const handleChoiceClick = (isCorrect) =>{
+        const handleChoiceClick = (isCorrect, e) =>{
                 const nextBackground = currentBackground + 1;
                 const minusLife = currentLives + 1;
-                const nextQuestion = currentQuestion + 1;
                 const nextChopStage = currentChopStage + 1;
 
+                e.target.disabled = true;
+                e.target.classList.remove("ready");
                 if (isCorrect === true){
                         showCorrectHandler();
                         setCurrentBackground(nextBackground);
-                } else{
+                } else {
                         
                         if(minusLife < lives.length){
                                 showIncorrectHandler();
@@ -109,19 +112,28 @@ export default function OldGrowthStart() {
                                 setCurrentChopStage(nextChopStage);
                                  
                         } else {
-                                //if lives run out, chop down tree 
-                               r.push("endLose");
+                               r.push({
+                                      pathname: "/old_growth/endLose"
+                                });
                         } 
                 }
                 //while there is still questions, give next q
-                if(nextQuestion < qs.length){
+                if(qnum < qs.length-1 && minusLife < lives.length){
                         setTimeout(() => {
-                                setCurrentQuestion(nextQuestion);  
+                                r.push({
+                                        pathname:"/old_growth/start/",
+                                        query:{
+                                                qnum: Number(qnum)+1
+                                        }
+                                })
                         }, 2000);
                       
-                } else {
+                } 
+                if(qnum >= qs.length-1){
                         //if out of questions, tree grows to win
-                        r.push("endWin");
+                               r.push({
+                                      pathname: "/old_growth/endWin"
+                                });
                 }
         }
 
@@ -137,21 +149,24 @@ export default function OldGrowthStart() {
         </div>
         {settingsOpen && <SettingsModal onClick= {closeSettingsHandler}/>}
         {settingsOpen && <SettingsBackdrop onClick = {closeSettingsHandler}/>}
-        
+        <AnimatePresence initial ={false}>
         <QuestionBox
-        as={motion.div} 
-        animate = {{y:-30}} 
-        transiton={{delay:5000}}>
+        key = {qnum}
+        initial = {{y:-500, opacity:0}}
+        animate = {{y:-30, opacity:1}} 
+        transiton={{delay:300}}
+        exit={{y:-500, opacity: 0}}>
                 <Question>
-                {qs[currentQuestion].title}
+                {qs[qnum].title}
                 </Question>
                 {showCorrect && <SmallIcon src = "/correct.svg"/>}
                 {showIncorrect && <SmallIcon src = "/incorrect.svg"/>}
                 <AnswerBox>
-                        {qs[currentQuestion].choices.map((pick)=> 
-                        <Answer onClick = {() => handleChoiceClick(pick.isCorrect)}>{pick.choice}</Answer>)}
+                        {qs[qnum].choices.map((pick)=> 
+                        <Answer className ="ready" bg = {pick.clr} onClick = {(e) => handleChoiceClick(pick.isCorrect, e)}>{pick.choice}</Answer>)}
                 </AnswerBox>
         </QuestionBox>
+        </AnimatePresence>
       </ImgBackground>
     )
   }
