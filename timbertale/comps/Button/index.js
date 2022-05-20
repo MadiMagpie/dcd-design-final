@@ -25,7 +25,7 @@ box-shadow: 0px 5px 10px #BFBFBF;
 export const ShortButton = styled(LongButton)`
 cursor: pointer;
 min-width: 100px;
-padding: 0.5em 0.25em; 
+padding: 0.5em; 
 font-size: ${props => props.size||"1.25em"}; 
 font-family: 'Poppins', sans-serif;
 font-weight: 500;

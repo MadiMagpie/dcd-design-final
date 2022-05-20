@@ -1,6 +1,6 @@
 export const qs = [
         {   
-            title:"How many estimated tree species are there in The Amazon?",
+            title:"How many estimated tree species are there in the Amazon?",
             choices:[
                 {choice: "7000", isCorrect: false, clr: "#7D4D2B"}, 
                 {choice: "3000", isCorrect: false, clr: "#7D4D2B"},
@@ -10,7 +10,7 @@ export const qs = [
             // answer:choices[0]
         },   
         {   
-                title:"The Amazon floor is in permanent darkness. In fact, it’s so thick that when it rains, it takes __ minutes for the water to reach the ground",
+                title:"The Amazon floor is in permanent darkness. In fact, it’s so thick that when it rains, it takes _ minutes for the water to reach the ground",
                 choices:[
                     {choice:"1", isCorrect: false, clr: "#7D4D2B"},
                     {choice:"3", isCorrect: false, clr: "#7D4D2B"}, 
@@ -62,7 +62,7 @@ export const qs = [
             // answer:choices[3]
         },
         {   
-            title:"Nearly ___ of the Amazon Rainforest is found in Brazil",
+            title:"Nearly _ of the Amazon Rainforest is found in Brazil",
             choices:[
                 {choice:"2/3", isCorrect: true, clr: "#999529"},
                 {choice:"1/4", isCorrect: false, clr: "#7D4D2B"},
