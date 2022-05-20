@@ -1,10 +1,23 @@
-import { FSBackground, Heading } from "../../comps/Display";
+import { useRouter } from "next/router";
+import { LongButton } from "../../comps/Button";
+import { ImgBackground, Heading, Desc, Wrapper, Box } from "../../comps/Display";
+import { motion } from "framer-motion";
 
-export default function youLost(){
+export default function youWon(){
+        const r = useRouter();
         return(
-                <FSBackground backgroundcolor = "#FFFAF1">
-                        <Heading> you lost.</Heading>        
-                </FSBackground>
+                <ImgBackground background = "/OldGrowth_CompleteFinalGrowCongrats-04.svg">
+                        <Box as={motion.div} 
+                initial ={{y:-300}} 
+                animate = {{y:-50}} 
+                transiton={{type: "spring", stiffness: 700, damping: 60}} width = "75%">
+                        <Wrapper>
+                        <Heading color = "#EB6A00">Timmmber!</Heading>
+                        <Desc weight="500">Oh no! the lumberjack won!</Desc>
+                        <Desc>By answering 3 questions incorrect, the tree you were growing in the BC Old Growth forest was chopped down.</Desc>
+                        <LongButton size = "1em" marginbottom = "1em" onClick={()=>r.push("/")}>Home</LongButton>
+                        </Wrapper>
+                        </Box>        
+                </ImgBackground>
         )
-        
 }

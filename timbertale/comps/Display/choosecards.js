@@ -12,16 +12,20 @@ export const ChooseInfo = styled.h3`
 display: flex;
 text-align: center;
 width: ${props => props.width || "75%"};
-color: #FFFFFF;
+color: ${props => props.color || "#FFFFFF"};
 font-size: 1em;
+justify-content: center;
 `;
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import OldGrowth  from '../../public/OldGrowth.jpg'
-import Sumatran  from '../../public/Sumatran.jpg'
-import Amazon from '../../public/Amazon.jpg'
+import OldGrowth  from '../../public/Cards_OldGrowth-01.jpg'
+import Sumatran  from '../../public/Cards_Sumatran-01.jpg'
+import Amazon from '../../public/Cards_Amazon-01.jpg'
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 
 import 'swiper/css';
  
@@ -34,6 +38,9 @@ export default function SwiperForest () {
      slidesPerView={'auto'}
      centeredSlides={true}
      loop={true}
+     navigation={true}
+     pagination={{dynamicBullets:true,}}
+     modules={[Pagination, Navigation]}
      onSlideChange={() => console.log('slide change')}
      onSwiper={(swiper) => console.log(swiper)}
    > 

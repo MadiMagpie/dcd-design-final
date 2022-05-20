@@ -29,7 +29,7 @@ return (
               {qs[1].title}
               </Question>
               <AnswerBox>
-                      {qs[2].choices.map((pick)=> <Answer onClick={()=> r.push("/tutorial/wrong")}>{pick.choice}</Answer>)}
+                      {qs[1].choices.map((pick)=> <Answer onClick={()=> r.push("/tutorial/wrong")}>{pick.choice}</Answer>)}
               </AnswerBox>
       </QuestionBox>
       {settingsOpen && <SettingsModal onClick= {closeSettingsHandler}/>}

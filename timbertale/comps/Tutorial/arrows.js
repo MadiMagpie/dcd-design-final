@@ -5,6 +5,7 @@ position: absolute;
 bottom: 38vh;
 left: 6vw;
 z-index: 2;
+pointer-events: none;
 `;
 
 export const Tut1q = styled.div`
@@ -19,6 +20,7 @@ transform: rotate(190deg);
     top: 40vh;
     right:6vw;
     z-index: 2;
+    pointer-events: none;
 `;
 
 export const Tut2Q = styled.div`

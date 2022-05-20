@@ -40,8 +40,7 @@ export default function HowToPlay () {
          <Desc style={{marginLeft:"2em", textAlign: "left"}} color="#FFFFFF"> If you get the question wrong the lumberjack will grab an axe and swing at your tree. Don't get 3 wrong or your tree will fall over.</Desc>
      </RowWrapper>
      </Wrapper>
-<LongButton onClick={()=>r.push("/choose")}>Choose your forest</LongButton>
-<LongButton onClick={()=>r.push("/tutorial")}>Tutorial</LongButton>
+<LongButton style={{marginTop:"2em"}} onClick={()=>r.push("/old_growth")}>Start the Quiz</LongButton>
 </FSBackground>
     )
 }

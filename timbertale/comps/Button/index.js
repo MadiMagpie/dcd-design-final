@@ -80,7 +80,7 @@ export function BackButton(){
 export function SkipButton(){
         const r = useRouter();
         return(
-                <SButton onClick = { ()=> r.push("/tutorial/last")}>
+                <SButton onClick = { ()=> r.push("/tutorial/finish")}>
                         SKIP 
                         <img src = "/skiparrow.svg"></img>                             
                 </SButton>
