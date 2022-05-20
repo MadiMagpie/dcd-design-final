@@ -6,6 +6,7 @@ import Slider from "../../public/slider.svg"
 import { useRouter } from "next/router";
 import { useState, useEffect, useDebugValue } from "react";
 import useSound from 'use-sound';
+import { m } from "framer-motion";
 
 
 export const BigBox = styled.div`
@@ -110,12 +111,18 @@ const switch_data = {
     active:{
         side:"flex-start",
         color: "#FFFFFF",
-        dot: "#EB6A00"
+        dot: "#EB6A00",
+        tc: "#7D4D2B",
+        bg: "#FFFFFF",
+        size: "1.2em"
     }, 
     inactive:{
         side:"flex-end",
         color: "#7D4D2B",
-        dot: "#FFFFFF"
+        dot: "#FFFFFF",
+        tc: "#FFFFFF",
+        bg: "#7D4D2B",
+        size: "0.8em"
     }
 }
 
@@ -152,6 +159,42 @@ export function Switch({
     </Selector>
 }
 
+export function TextSize({
+    active = false,
+    onSwitch=()=>{}
+}){
+
+const [a_state, setAState] = useState("inactive");
+
+useEffect(()=>{
+    if(active){
+        setAState("active");
+    } else {
+        setAState("inactive");
+    }
+}, [active])
+
+useEffect(()=>{
+    if(a_state === "active"){
+        onSwitch(true);
+    } else {
+        onSwitch(false);
+    }
+}, [a_state])
+
+return <TextSizeWrapper background={switch_data[a_state].bg}
+bg={switch_data[a_state].bg}
+color={switch_data[a_state].tc}
+size={switch_data[a_state].size}
+onClick={
+    ()=>setAState(a_state === "active" ? "inactive" : "active")
+}>
+    aA
+</TextSizeWrapper>
+}
+
+
+
     export function SettingsModal(props){
     const r = useRouter();
 const [e_state, setEState] = useState(false);
@@ -183,7 +226,7 @@ const [e_state, setEState] = useState(false);
                         <TextSizeWrapper background="#7D4D2B" color="#FFFFFF" size="0.8em">
                             aA
                         </TextSizeWrapper>
-                        <TextSizeWrapper>
+                        <TextSizeWrapper size="1.2em">
                             aA
                         </TextSizeWrapper>
                         </div>
@@ -191,9 +234,6 @@ const [e_state, setEState] = useState(false);
                         <SetLine/>
                     <SetBox> Dark Mode 
                     <Switch
-                        onSwitch={
-                            (val)=>setEState(val)
-                        }
                         ></Switch>
                         </SetBox>
                         <SetLine/>
