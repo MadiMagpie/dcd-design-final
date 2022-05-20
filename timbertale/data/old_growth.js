@@ -19,6 +19,13 @@ export const qs = [
         ],
         // answer:choices[2]
     },
+    {
+        fact: "Forest Fact #1",
+        title: "Tens of thousands of hectares of ancient forests are logged each year in BC, resulting in a huge climate and environmental footprint.",
+        choices:[
+            {choice: "continue quiz", isCorrect: null}
+        ]
+    },
     {   
         title:"What is the main tree type that makes up the old growth forests?",
         choices:[
@@ -36,6 +43,13 @@ export const qs = [
             {choice:"30ft", isCorrect: false, clr: "#7D4D2B"}, 
             {choice:"80ft", isCorrect: false, clr: "#7D4D2B"}],
         // answer:choices[1] 3.6m, 18.3m, 9.1m, 24.4m
+    },
+    {
+        fact: "Forest Fact #2",
+        title: "Replanting does not adequately replicate an old-growth forest ecosystem.",
+        choices:[
+            {choice: "continue quiz", isCorrect: null}
+        ]
     },
     {   
         title:"What percentage of BC original old growth is protected?",
@@ -55,6 +69,13 @@ export const qs = [
             {choice:"50,000", isCorrect: false, clr: "#7D4D2B"}],
         // answer:choices[0]
     },
+    {
+        fact: "Forest Fact #3",
+        title: "It would take at least 200 years for replanted trees to regain important old-growth characteristics.",
+        choices:[
+            {choice: "continue quiz", isCorrect: null}
+        ]
+    },
     {   
         title:"How many species rely on BC's old growth forests?",
         choices:[
@@ -72,6 +93,13 @@ export const qs = [
             {choice:"200 Years", isCorrect: false, clr: "#7D4D2B"}, 
             {choice:"150 Years", isCorrect: false, clr: "#7D4D2B"}],
         // answer:choices[0]
+    },
+    {
+        fact: "Forest Fact #4",
+        title: "In old-growth forests, the multi-layered canopy of differently-aged trees allow sunlight through, creating a rich, luxuriant understory that provides food and habitat for many species.",
+        choices:[
+            {choice: "continue quiz", isCorrect: null}
+        ]
     },
     {   
         title:"Where are BCs largest old growth forests located?",
