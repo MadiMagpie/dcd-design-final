@@ -46,3 +46,12 @@ export const lives = [
         //         </LifeBox>
         // }
 ];
+
+export const jack = [
+        {
+                jack: "/lumberjack_chop.svg",
+        },{
+                jack: "/lumberjack.svg",
+        }
+
+];

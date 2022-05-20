@@ -5,7 +5,7 @@ import { chopstage } from "../../data/chop";
 import { ImgBackground, SmallIcon } from "../../comps/Display";
 import { useState } from "react";
 import styled from "styled-components";
-import { lives } from "../../data/lives";
+import { lives, jack } from "../../data/lives";
 import { AnimatePresence, motion } from "framer-motion";
 import { SettingsModal, SetButton, SettingsBackdrop } from "../../comps/Settings";
 
@@ -78,6 +78,8 @@ export default function AmazonStart() {
         const [currentLives, setCurrentLives] = useState(0);
         const [settingsOpen, setSettingsOpen] = useState(false);
         const [currentChopStage, setCurrentChopStage] = useState(0);
+        const [currentJack, setCurrentJack] = useState(0);
+
 
         const r = useRouter();
         var {qnum} = r.query;
@@ -101,8 +103,10 @@ export default function AmazonStart() {
         
         function showIncorrectHandler(){
                 setShowIncorrect(true);
+                setCurrentJack(1);
                 setTimeout(() => {
                         setShowIncorrect(false);
+                        setCurrentJack(0);
                 }, 2500);
         }
 
@@ -167,7 +171,7 @@ export default function AmazonStart() {
         <div className = "base">
                 {lives[currentLives].status}
                 <SetButton onClick = {settingsHandler}> <img src='/settings.svg'/></SetButton>
-                <img className = "lumberjack" src = "/lumberjack1.svg"/>
+                <img className = "lumberjack" src = {jack[currentJack].jack}/>
                 <img className="startTree" src = {amazonbg[currentBackground].bg}/>
                 <img className="startChop" src = {chopstage[currentChopStage].chop}/>
         </div>

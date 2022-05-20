@@ -5,7 +5,7 @@ import { chopstage } from "../../data/chop";
 import { ImgBackground, SmallIcon } from "../../comps/Display";
 import { useState } from "react";
 import styled from "styled-components";
-import { lives } from "../../data/lives";
+import { lives, jack } from "../../data/lives";
 import { AnimatePresence, motion } from "framer-motion";
 import { SettingsModal, SetButton, SettingsBackdrop } from "../../comps/Settings";
 
@@ -78,6 +78,8 @@ export default function SumatranStart() {
         const [currentLives, setCurrentLives] = useState(0);
         const [settingsOpen, setSettingsOpen] = useState(false);
         const [currentChopStage, setCurrentChopStage] = useState(0);
+        const [currentJack, setCurrentJack] = useState(0);
+
 
         const r = useRouter();
         var {qnum} = r.query;
@@ -167,7 +169,7 @@ export default function SumatranStart() {
         <div className = "base">
                 {lives[currentLives].status}
                 <SetButton onClick = {settingsHandler}> <img src='/settings.svg'/></SetButton>
-                <img className = "lumberjack" src = "/lumberjack1.svg"/>
+                <img className = "lumberjack" src = {jack[currentJack].jack}/>
                 <img className="startTree" src = {sumatranbg[currentBackground].bg}/>
                 <img className="startChop" src = {chopstage[currentChopStage].chop}/>
         </div>
@@ -178,7 +180,7 @@ export default function SumatranStart() {
         key = {qnum}
         initial = {{y:-300, opacity:0}}
         animate = {{y:-30, opacity:1}} 
-        transiton={{delay:30}}
+        transiton={{duration: 30, delay:45}}
         exit={{y:500, opacity: 0}}>
                 <Fact>
                 {qs[qnum].fact}

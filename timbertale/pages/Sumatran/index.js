@@ -21,7 +21,7 @@ export default function Sumatran() {
       <div className = "base">
         <LifeHolder></LifeHolder>
           <SetButton onClick = {settingsHandler}> <img src='/settings.svg'/></SetButton>
-          <img className = "lumberjack" src = "/lumberjack1.svg"/>
+          <img className = "lumberjack" src = "/lumberjack.svg"/>
           <img className=" startTree" src = "/SumatranStages_Growing/Sumatran_GrowStage1.svg"/>
       </div>
       <WelcomeSumatran heading = "Welcome to the Sumatran Rainforest!"></WelcomeSumatran>
