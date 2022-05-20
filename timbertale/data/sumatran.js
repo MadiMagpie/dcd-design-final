@@ -17,7 +17,7 @@ export const qs = [
                     {choice:"15%", isCorrect: false, clr: "#7D4D2B"}, 
                     {choice:"50%", isCorrect: true, clr: "#999529"}],
                 // answer:choices[3]
-            },
+        },
         
         {
             fact: "Forest Fact #1",
@@ -37,7 +37,7 @@ export const qs = [
             },
         
         {   
-            title:"In the past __ years, about 12 million hectares of forest on Sumatra have been cleared.",
+            title:"In the past _ years, about 12 million hectares of forest on Sumatra have been cleared.",
             choices:[
                 {choice:"7", isCorrect: false, clr: "#7D4D2B"}, 
                 {choice:"10", isCorrect: false, clr: "#7D4D2B"}, 
@@ -79,7 +79,7 @@ export const qs = [
             ]
         },
         {   
-                title:"The loss of those forests released the equivalent of about __ gigatons of carbon dioxide emissions.",
+                title:"The loss of those forests released the equivalent of about _ gigatons of carbon dioxide emissions.",
                 choices:[
                     {choice: "10.5",  isCorrect: true, clr: "#999529"}, 
                     {choice:"2.5", isCorrect: false, clr: "#7D4D2B"}, 
@@ -89,7 +89,7 @@ export const qs = [
                 // answer:choices[2]
         },
         {   
-                title:"Sumatra’s Tropical Rain Forest has an area of approximately __ million hectares.",
+                title:"Sumatra’s Tropical Rain Forest has an area of approximately _ million hectares.",
                 choices:[
                     {choice: "4.5", isCorrect: false, clr: "#7D4D2B"}, 
                     {choice:"3", isCorrect: false, clr: "#7D4D2B"}, 
@@ -105,7 +105,7 @@ export const qs = [
             ]
         },
         {   
-            title:"It is estimated that Indonesia’s peatlands and rainforests store at least __ billion tons of carbon.",
+            title:"It is estimated that Indonesia’s peatlands and rainforests store at least _ billion tons of carbon.",
             choices:[
                 {choice:"100", isCorrect: false, clr: "#7D4D2B"}, 
                 {choice:"70", isCorrect: true, clr: "#999529"}, 
@@ -114,7 +114,7 @@ export const qs = [
             // answer:choices[1]
         },
         {   
-            title:"In the past __ years, 40% of the Sumatran Rainforest has disappeared.",
+            title:"In the past _ years, 40% of the Sumatran Rainforest has disappeared.",
             choices:[
                 {choice:"30", isCorrect: false, clr: "#7D4D2B"}, 
                 {choice:"15", isCorrect: false, clr: "#7D4D2B"}, 

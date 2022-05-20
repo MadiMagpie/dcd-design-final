@@ -199,8 +199,8 @@ const [e_state, setEState] = useState(false);
                         <SetLine/>
                 </SetText>
                 <ButBox>
-                    <ShortButton marginleft = "20" onClick = {()=>r.push("/")}>Home</ShortButton>
-                    <ShortButton marginleft = "20"onClick = {props.onClick}>Continue</ShortButton>
+                    <ShortButton marginleft = "30" onClick = {()=>r.push("/")}>Home</ShortButton>
+                    <ShortButton marginleft = "10" onClick = {props.onClick}>Continue</ShortButton>
                 </ButBox>
             </SettingItemWrapper>
         </BigBox>

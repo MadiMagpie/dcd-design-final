@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
-import { qs } from "../../data/old_growth";
-import { ogbg } from "../../data/og_bg";
+import { qs } from "../../data/sumatran";
+import { sumatranbg } from "../../data/sumatran_bg";
 import { chopstage } from "../../data/chop";
 import { ImgBackground, SmallIcon } from "../../comps/Display";
 import { useState } from "react";
@@ -71,7 +71,7 @@ font-size: 1rem;
 border-style: none; 
 `;
 
-export default function OldGrowthStart() {
+export default function SumatranStart() {
         const [showCorrect, setShowCorrect] = useState(false);
         const [showIncorrect, setShowIncorrect] = useState(false);
         const [currentBackground, setCurrentBackground] = useState(0);
@@ -118,7 +118,7 @@ export default function OldGrowthStart() {
                 }
                 if(isCorrect === null){
                         r.push({
-                                pathname:"/old_growth/start/",
+                                pathname:"/Sumatran/start/",
                                 query:{
                                         qnum: Number(qnum)+1
                                 }
@@ -136,7 +136,7 @@ export default function OldGrowthStart() {
                                         
                                 } else {
                                 r.push({
-                                        pathname: "/old_growth/endLose"
+                                        pathname: "/Sumatran/endLose"
                                         });
                                 } 
                         }
@@ -144,7 +144,7 @@ export default function OldGrowthStart() {
                         if(qnum < qs.length-1 && minusLife < lives.length){
                                 setTimeout(() => {
                                         r.push({
-                                                pathname:"/old_growth/start/",
+                                                pathname:"/Sumatran/start/",
                                                 query:{
                                                         qnum: Number(qnum)+1
                                                 }
@@ -155,7 +155,7 @@ export default function OldGrowthStart() {
                         if(qnum >= qs.length-1){
                                 //if out of questions, tree grows to win
                                 r.push({
-                                        pathname: "/old_growth/endWin"
+                                        pathname: "/Sumatran/endWin"
                                         });
                         }
                 }
@@ -163,12 +163,12 @@ export default function OldGrowthStart() {
 
 
     return (
-      <ImgBackground background = "/oldgrowth.svg">
+      <ImgBackground background = "/sumatran.svg">
         <div className = "base">
                 {lives[currentLives].status}
                 <SetButton onClick = {settingsHandler}> <img src='/settings.svg'/></SetButton>
                 <img className = "lumberjack" src = "/lumberjack1.svg"/>
-                <img className="startTree" src = {ogbg[currentBackground].bg}/>
+                <img className="startTree" src = {sumatranbg[currentBackground].bg}/>
                 <img className="startChop" src = {chopstage[currentChopStage].chop}/>
         </div>
         {settingsOpen && <SettingsModal onClick= {closeSettingsHandler}/>}
@@ -176,8 +176,10 @@ export default function OldGrowthStart() {
         <AnimatePresence>
         <QuestionBox
         key = {qnum}
+        initial = {{y:-300, opacity:0}}
         animate = {{y:-30, opacity:1}} 
-        exit={{y:100, opacity: 0}}>
+        transiton={{delay:30}}
+        exit={{y:500, opacity: 0}}>
                 <Fact>
                 {qs[qnum].fact}
                 </Fact>
