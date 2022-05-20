@@ -86,24 +86,35 @@ h3{
 
 .swiper-slide {
   border-radius: 10px;
-  justify-content: center;
 }
 
-.swiper-slide-active {
-  scale: 2;
-}
 
 .swiper-slide > button {
   opacity: 0;
   position: relative;
-  margin-top: -60px;
+  margin-top: 10px;
 }
 
+.swiper-slide > img {
+  width: 30vw;
+  height: 30vh;
+  border-radius: 20px;
+  margin-left: 10px;
+}
 
 .swiper-slide > Image {
   border-radius: 20px;
 }
 
+.swiper-slide-active > img {
+width: 45vw;
+height: 44vh;
+margin-left: -20px;
+}
 .swiper-slide-active > button {
   opacity: 100;
+}
+
+.swiper-wrapper {
+  align-items: center;
 }
