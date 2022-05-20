@@ -5,7 +5,7 @@ import { chopstage } from "../../data/chop";
 import { ImgBackground, SmallIcon } from "../../comps/Display";
 import { useState } from "react";
 import styled from "styled-components";
-import { lives } from "../../data/lives";
+import { lives, jack } from "../../data/lives";
 import { AnimatePresence, motion } from "framer-motion";
 import { SettingsModal, SetButton, SettingsBackdrop } from "../../comps/Settings";
 
@@ -78,6 +78,7 @@ export default function OldGrowthStart() {
         const [currentLives, setCurrentLives] = useState(0);
         const [settingsOpen, setSettingsOpen] = useState(false);
         const [currentChopStage, setCurrentChopStage] = useState(0);
+        const [currentJack, setCurrentJack] = useState(0);
 
         const r = useRouter();
         var {qnum} = r.query;
@@ -101,8 +102,10 @@ export default function OldGrowthStart() {
         
         function showIncorrectHandler(){
                 setShowIncorrect(true);
+                setCurrentJack(1);
                 setTimeout(() => {
                         setShowIncorrect(false);
+                        setCurrentJack(0);
                 }, 2500);
         }
 
@@ -167,7 +170,7 @@ export default function OldGrowthStart() {
         <div className = "base">
                 {lives[currentLives].status}
                 <SetButton onClick = {settingsHandler}> <img src='/settings.svg'/></SetButton>
-                <img className = "lumberjack" src = "/lumberjack1.svg"/>
+                <img className = "lumberjack" src = {jack[currentJack].jack}/>
                 <img className="startTree" src = {ogbg[currentBackground].bg}/>
                 <img className="startChop" src = {chopstage[currentChopStage].chop}/>
         </div>
@@ -176,8 +179,10 @@ export default function OldGrowthStart() {
         <AnimatePresence>
         <QuestionBox
         key = {qnum}
+        initial= {{y:100}}
         animate = {{y:-30, opacity:1}} 
-        exit={{y:100, opacity: 0}}>
+        transiton={{duration: 30, delay:500}}
+        exit={{y:-100, opacity: 0}}>
                 <Fact>
                 {qs[qnum].fact}
                 </Fact>

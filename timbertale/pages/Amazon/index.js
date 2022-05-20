@@ -21,7 +21,7 @@ export default function Sumatran() {
       <div className = "base">
         <LifeHolder></LifeHolder>
           <SetButton onClick = {settingsHandler}> <img src='/settings.svg'/></SetButton>
-          <img className = "lumberjack" src = "/lumberjack1.svg"/>
+          <img className = "lumberjack" src = "/lumberjack.svg"/>
           <img className=" startTree" src = "/AmazonStages_Growing/Amazon_GrowStage1.svg"/>
       </div>
       <WelcomeAmazon heading = "Welcome to the Amazon Rainforest!"></WelcomeAmazon>
