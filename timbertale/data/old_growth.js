@@ -61,7 +61,7 @@ export const qs = [
         // answer:choices[3]
     },
     {   
-        title:"How many hectares of forest are logged anually?",
+        title:"How many hectares of forest are logged annually?",
         choices:[
             {choice:"140,000", isCorrect: true, clr: "#999529"},
             {choice:"90,000", isCorrect: false, clr: "#7D4D2B"},
@@ -96,7 +96,7 @@ export const qs = [
     },
     {
         fact: "Forest Fact #4",
-        title: "In old-growth forests, the multi-layered canopy of differently-aged trees allow sunlight through, creating a rich, luxuriant understory that provides food and habitat for many species.",
+        title: "In old-growth forests, the multi-layered canopy of differently-aged trees allow sunlight through, creating a rich, luxuriant understory that provides food and habitats for many species.",
         choices:[
             {choice: "continue quiz", isCorrect: null}
         ]

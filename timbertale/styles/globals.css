@@ -96,10 +96,10 @@ h3{
 }
 
 .swiper-slide > img {
-  width: 30vw;
+  width: 35vw;
   height: 30vh;
   border-radius: 20px;
-  margin-left: 10px;
+  margin-left: -25px;
 }
 
 .swiper-slide > Image {
@@ -107,12 +107,13 @@ h3{
 }
 
 .swiper-slide-active > img {
-width: 45vw;
+width: 50vw;
 height: 44vh;
-margin-left: -20px;
+margin-left: -50px;
 }
 .swiper-slide-active > button {
   opacity: 100;
+  margin-left: -5px;
 }
 
 .swiper-wrapper {

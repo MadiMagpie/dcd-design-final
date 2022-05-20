@@ -175,13 +175,13 @@ export default function SumatranStart() {
         </div>
         {settingsOpen && <SettingsModal onClick= {closeSettingsHandler}/>}
         {settingsOpen && <SettingsBackdrop onClick = {closeSettingsHandler}/>}
-        <AnimatePresence>
+        <AnimatePresence exitBeforeEnter>
         <QuestionBox
         key = {qnum}
-        initial = {{y:-300, opacity:0}}
+        initial= {{y:-100}}
         animate = {{y:-30, opacity:1}} 
-        transiton={{duration: 30, delay:45}}
-        exit={{y:500, opacity: 0}}>
+        transiton={{duration: 30, delay:500}}
+        exit={{y:125, opacity: 0}}>
                 <Fact>
                 {qs[qnum].fact}
                 </Fact>

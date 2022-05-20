@@ -24,7 +24,7 @@ export default () => {
    <div style={{background:"#999529", height:"100vh"}}>
      <FSBackground backgroundcolor = "#999529" height = "auto">
       <BackButton onClick={()=>r.back}></BackButton>
-    <Wrapper margintop="4em" marginbottom = "3em">
+    <Wrapper margintop="6em" marginbottom = "3em">
       <Heading color="#FFFFFF">Select Your Forest</Heading>
       <ChooseInfo>Forests are important and grow in many places around the world. They are an ecosystem which includes many plants and animals.</ChooseInfo>
     </Wrapper></FSBackground>
