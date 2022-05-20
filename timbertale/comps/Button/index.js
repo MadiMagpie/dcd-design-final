@@ -66,7 +66,7 @@ justify-content: space-between;
 width:75px;
 margin-bottom: 25px;
 margin-left: 75%;
-`
+`;
 export function BackButton(){
         const r = useRouter();
         return (
