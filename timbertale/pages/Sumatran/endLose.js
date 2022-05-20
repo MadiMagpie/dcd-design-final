@@ -3,7 +3,7 @@ import { LongButton } from "../../comps/Button";
 import { ImgBackground, Heading, Desc, Wrapper, Box } from "../../comps/Display";
 import { motion } from "framer-motion";
 
-export default function youWon(){
+export default function YouLose(){
         const r = useRouter();
         return(
                 <ImgBackground background = "/Lose_Sumatran-01.svg">
