@@ -32,6 +32,18 @@ justify-content: space-evenly;
 max-width: 250px;
 `;
 
+const Fact = styled.div`
+font-family: 'Poppins', sans-serif;
+display: flex;
+align-items: center;
+padding-top:15px;
+justify-content: center;
+text-align: center;
+font-weight: 600;
+color: #7D4D2B;
+font-size: 1.5em;
+`
+
 const Question = styled.div`
 font-family: 'Poppins', sans-serif;
 display: flex;
@@ -84,14 +96,14 @@ export default function OldGrowthStart() {
                 setShowCorrect(true);
                 setTimeout(() => {
                         setShowCorrect(false);
-                }, 2000);
+                }, 2500);
         }
         
         function showIncorrectHandler(){
                 setShowIncorrect(true);
                 setTimeout(() => {
                         setShowIncorrect(false);
-                }, 2000);
+                }, 2500);
         }
 
         const handleChoiceClick = (isCorrect, e) =>{
@@ -100,40 +112,52 @@ export default function OldGrowthStart() {
                 const nextChopStage = currentChopStage + 1;
 
                 e.target.disabled = true;
-                e.target.classList.remove("ready");
-                if (isCorrect === true){
-                        showCorrectHandler();
-                        setCurrentBackground(nextBackground);
-                } else {
-                        
-                        if(minusLife < lives.length){
-                                showIncorrectHandler();
-                                setCurrentLives(minusLife); 
-                                setCurrentChopStage(nextChopStage);
-                                 
-                        } else {
-                               r.push({
-                                      pathname: "/old_growth/endLose"
-                                });
-                        } 
+                let boxes = document.querySelectorAll(Answer);
+                for(let i = 0; i < boxes.length; i++){
+                        boxes[i].classList.remove("ready");
                 }
-                //while there is still questions, give next q
-                if(qnum < qs.length-1 && minusLife < lives.length){
-                        setTimeout(() => {
+                if(isCorrect === null){
+                        r.push({
+                                pathname:"/old_growth/start/",
+                                query:{
+                                        qnum: Number(qnum)+1
+                                }
+                        })
+                }else {
+                        if (isCorrect === true){
+                                showCorrectHandler();
+                                setCurrentBackground(nextBackground);
+                        } else {
+                                
+                                if(minusLife < lives.length){
+                                        showIncorrectHandler();
+                                        setCurrentLives(minusLife); 
+                                        setCurrentChopStage(nextChopStage);
+                                        
+                                } else {
                                 r.push({
-                                        pathname:"/old_growth/start/",
-                                        query:{
-                                                qnum: Number(qnum)+1
-                                        }
-                                })
-                        }, 2000);
-                      
-                } 
-                if(qnum >= qs.length-1){
-                        //if out of questions, tree grows to win
-                               r.push({
-                                      pathname: "/old_growth/endWin"
-                                });
+                                        pathname: "/old_growth/endLose"
+                                        });
+                                } 
+                        }
+                        //while there is still questions, give next q
+                        if(qnum < qs.length-1 && minusLife < lives.length){
+                                setTimeout(() => {
+                                        r.push({
+                                                pathname:"/old_growth/start/",
+                                                query:{
+                                                        qnum: Number(qnum)+1
+                                                }
+                                        })
+                                }, 2500);
+                        
+                        } 
+                        if(qnum >= qs.length-1){
+                                //if out of questions, tree grows to win
+                                r.push({
+                                        pathname: "/old_growth/endWin"
+                                        });
+                        }
                 }
         }
 
@@ -149,18 +173,21 @@ export default function OldGrowthStart() {
         </div>
         {settingsOpen && <SettingsModal onClick= {closeSettingsHandler}/>}
         {settingsOpen && <SettingsBackdrop onClick = {closeSettingsHandler}/>}
-        <AnimatePresence initial ={false}>
+        <AnimatePresence>
         <QuestionBox
         key = {qnum}
-        initial = {{y:-500, opacity:0}}
+        initial = {{y:-300, opacity:0}}
         animate = {{y:-30, opacity:1}} 
-        transiton={{delay:300}}
-        exit={{y:-500, opacity: 0}}>
+        transiton={{delay:30}}
+        exit={{y:500, opacity: 0}}>
+                <Fact>
+                {qs[qnum].fact}
+                </Fact>
                 <Question>
                 {qs[qnum].title}
                 </Question>
                 {showCorrect && <SmallIcon src = "/correct.svg"/>}
-                {showIncorrect && <SmallIcon src = "/incorrect.svg"/>}
+                {showIncorrect && <SmallIcon  src = "/incorrect.svg"/>}
                 <AnswerBox>
                         {qs[qnum].choices.map((pick)=> 
                         <Answer className ="ready" bg = {pick.clr} onClick = {(e) => handleChoiceClick(pick.isCorrect, e)}>{pick.choice}</Answer>)}

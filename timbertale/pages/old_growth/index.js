@@ -22,7 +22,7 @@ export default function OldGrowth() {
         <LifeHolder></LifeHolder>
           <SetButton onClick = {settingsHandler}> <img src='/settings.svg'/></SetButton>
           <img className = "lumberjack" src = "/lumberjack1.svg"/>
-          <img className="startTree" src = "/OldGrowth_Stage1.svg"/>
+          <img className="startTree" src = "/OldGrowthStages_Growing/OldGrowth_GrowStage1.svg"/>
       </div>
       <WelcomeOG heading = "Welcome to the Old Growth Forest!"></WelcomeOG>
       {settingsOpen && <SettingsModal onClick= {closeSettingsHandler}/>}
