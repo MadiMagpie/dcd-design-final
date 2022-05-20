@@ -4,12 +4,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { FSBackground, Heading, Wrapper, RowWrapper} from "../../comps/Display";
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import OldGrowth  from '../../public/OldGrowth.jpg'
-import Sumatran  from '../../public/Sumatran.jpg'
-import Amazon from '../../public/Amazon.jpg'
+import OldGrowth  from '../../public/Cards_OldGrowth-01.jpg'
+import Sumatran  from '../../public/Cards_Sumatran-01.jpg'
+import Amazon from '../../public/Cards_Amazon-01.jpg'
 import { SettingsBackdrop, SetButton, SettingsModal } from '../../comps/Settings';
 import 'swiper/css';
 import { useState } from 'react';
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
  
 export default () => {
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -23,49 +26,56 @@ export default () => {
   }
 
  return (
-   <FSBackground backgroundcolor = "#999529">
+   <div style={{background:"#999529", height:"100vh"}}>
+     <FSBackground backgroundcolor = "#999529" height = "auto">
       <BackButton onClick={()=>r.back}></BackButton>
       <SetButton onClick = {settingsHandler}><img src='/settingswhite.svg'/></SetButton>
-    <Wrapper>
+    <Wrapper margintop="4em" marginbottom = "3em">
       <Heading color="#FFFFFF">Select Your Forest</Heading>
       <ChooseInfo>Forests are important and grow in many places around the world. They are an ecosystem which includes many plants and animals.</ChooseInfo>
-    </Wrapper>
+    </Wrapper></FSBackground>
     {settingsOpen && <SettingsModal onClick= {closeSettingsHandler}/>}
     {settingsOpen && <SettingsBackdrop onClick = {closeSettingsHandler}/>}
    <Swiper
      spaceBetween={10}
-     slidesPerView={'auto'}
+     slidesPerView={3}
      centeredSlides={true}
      loop={true}
      grabCursor={true}
+     navigation={true}
+     pagination={{dynamicBullets:true,}}
+     modules={[Pagination, Navigation]}
      onSlideChange={() => console.log('slide change')}
      onSwiper={(swiper) => console.log(swiper)}
+     className="mySwiper"
  >  
-    <SwiperSlide style={{width: "30%"}}>
+    <SwiperSlide>
+
      <Image src={OldGrowth}
        alt='oldGrowth'
        width={300}
-       height={500}
+       height={600}
       />
+      <ShortButton marginleft={"10px"} onClick={()=>r.push("/old_growth")}>Start</ShortButton>
      </SwiperSlide>
-     <SwiperSlide style={{width: "30%"}}>
+     <SwiperSlide>
        <Image src={Amazon}
        alt='amazon'
        width={300}
-       height={500}
+       height={600}
       />
+      <ShortButton marginleft={"10px"} onClick={()=>r.push("/Amazon")}>Start</ShortButton>
      </SwiperSlide>
-     <SwiperSlide style={{width: "30%"}}>
+     <SwiperSlide>
       <Image src={Sumatran} 
        alt='Sumatran'
        width={300}
-       height={500}
+       height={600}
         />
+        <ShortButton marginleft={"10px"} onClick={()=>r.push("/Sumatran")}>Start</ShortButton>
      </SwiperSlide>
    </Swiper>
   
-   <LongButton onClick={()=>r.push("/old_growth")}>Start</LongButton>
-   <LongButton onClick={()=>r.push("/howto")}>How to play</LongButton>
-   </FSBackground>
+</div>
  );
 };
